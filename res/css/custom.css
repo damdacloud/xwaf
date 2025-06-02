@@ -1541,11 +1541,13 @@ header .main-nav .lang ul {
   display:block;
   padding-left: 0rem; margin:0
 }
+header .main-nav .lang ul li {
+	list-style: none;
+}
 header .main-nav .lang ul li + li {
     position: relative;
     padding-left: 0px;
     margin-left: 0px;
-	list-style: none;
 }
 header .main-nav .lang ul li + li::before {
   content: "";
