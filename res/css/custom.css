@@ -1631,3 +1631,8 @@ header .main-nav .lang .depth a {
   line-height: 1.5;
   white-space: nowrap;
 }
+/* ============ [드롭다운 항목 왼쪽 정렬] ============ */
+.lang .depth ul li a,
+.lang .depth ul li a span {
+  text-align: left;
+}
