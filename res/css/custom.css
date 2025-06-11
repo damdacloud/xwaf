@@ -1664,11 +1664,11 @@ header .main-nav .lang .depth a {
 
 /* ============ [드롭다운 리스트와 버튼 너비 조정 - 160px 고정] ============ */
 .lang > button {
-  width: 160px;
+  width: 140px;
 }
 
 .lang .depth {
-  width: 160px;
+  width: 140px;
 }
 
 .lang .depth ul li a {
@@ -1681,7 +1681,7 @@ header .main-nav .lang .depth a {
 }
 
 .lang > button {
-  width: 160px !important;
+  width: 140px !important;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.5;
@@ -1690,7 +1690,7 @@ header .main-nav .lang .depth a {
 }
 
 .lang .depth {
-  width: 160px !important;
+  width: 140px !important;
 }
 
 .lang .depth ul li a,
@@ -1706,12 +1706,8 @@ header .main-nav .lang .depth a {
 
 /* .width_170 강제 무시 */
 .width_170 {
-  width: 160px !important;
+  width: 140px !important;
 }
 
-/* ============ [선택된 언어 버튼 중앙 정렬] ============ */
-.lang > button {
-  text-align: center !important;
-}
 
 
