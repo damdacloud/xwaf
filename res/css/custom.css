@@ -1612,10 +1612,10 @@ header .main-nav .lang .depth a {
   cursor: pointer;
   line-height: 2.2em;
 }
-/* ============ [언어 선택 버튼 및 드롭다운 항목 너비 자동 조정] ============ */
+/* ============ [언어 선택 버튼 및 드롭다운 항목 너비 일치화] ============ */
 .lang > button {
   padding: 6px 12px;
-  min-width: 110px;
+  width: 180px;  /* 고정 너비 설정 */
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0;
@@ -1624,8 +1624,7 @@ header .main-nav .lang .depth a {
 
 .lang .depth ul li a {
   display: block;
-  width: auto;
-  min-width: 120px;
+  width: 180px;  /* 버튼과 동일한 너비 */
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.5;
