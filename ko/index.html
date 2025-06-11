@@ -39,11 +39,9 @@
 
 	<!-- Header Section Starts-->
 	<header>
-		<!-- Header Section Starts -->
-		<header>
+		<!-- Header Nav Section Starts -->
 		  <div id="navbar-container"></div>
-		</header>
-		<!-- Header Section Ends -->
+		<!-- Header Nav Section Ends -->
 	</header>
 	<!-- Header Section Ends-->
 	
@@ -720,5 +718,16 @@
     <script src="../res/js/fancybox.umd.js"></script>
     <script src="../res/js/common.js"></script>
 
+	<script>
+	  document.addEventListener("DOMContentLoaded", function () {
+	    fetch("../res/include/nav.html")
+	      .then(response => response.text())
+	      .then(html => {
+	        document.getElementById("navbar-container").innerHTML = html;
+	      })
+	      .catch(err => console.error("nav.html 로드 실패:", err));
+	  });
+	</script>
+	
 </body>
 </html>
