@@ -1717,6 +1717,7 @@ header .main-nav .lang .depth a {
   width: 130px !important;
   min-width: 130px !important;
   max-width: 130px !important;
+  text-align: left !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
