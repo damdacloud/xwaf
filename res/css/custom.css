@@ -1709,3 +1709,24 @@ header .main-nav .lang .depth a {
   width: 140px !important;
 }
 
+/* ============ [Compact Width: 130px for Button, Dropdown, and Entries] ============ */
+.lang > button {
+  width: 130px !important;
+  text-align: center !important;
+}
+
+.lang .depth {
+  width: 130px !important;
+}
+
+.lang .depth ul li a,
+.lang .depth ul li a span {
+  width: 100% !important;
+  text-align: left !important;
+  padding-left: 12px;
+}
+
+.width_170 {
+  width: 130px !important;
+}
+
