@@ -1709,8 +1709,3 @@ header .main-nav .lang .depth a {
   width: 140px !important;
 }
 
-/* ============ [선택된 언어 버튼 중앙 정렬] ============ */
-.lang > button {
-  text-align: center !important;
-}
-
