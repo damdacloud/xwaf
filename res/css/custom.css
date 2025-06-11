@@ -1704,11 +1704,28 @@ header .main-nav .lang .depth a {
   text-align: left;
 }
 
-/* .width_170 강제 무시 */
-.width_170 {
-  width: 140px !important;
+/* ============ [Compact Width: 130px for Button, Dropdown, and Entries] ============ */
+.lang > button {
+  width: 130px !important;
+  text-align: center !important;
 }
 
+.lang .depth {
+  width: 130px !important;
+}
+
+.lang .depth ul li a,
+.lang .depth ul li a span {
+  width: 100% !important;
+  text-align: left !important;
+  padding-left: 12px;
+}
+
+.width_170 {
+  width: 130px !important;
+}
+
+/* ============ [강제 130px 너비 고정] ============ */
 .lang {
   width: 130px !important;
 }
@@ -1717,7 +1734,7 @@ header .main-nav .lang .depth a {
   width: 130px !important;
   min-width: 130px !important;
   max-width: 130px !important;
-  text-align: left !important;
+  text-align: center !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
