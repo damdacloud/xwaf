@@ -1709,3 +1709,37 @@ header .main-nav .lang .depth a {
   width: 140px !important;
 }
 
+.lang {
+  width: 130px !important;
+}
+
+.lang > button {
+  width: 130px !important;
+  min-width: 130px !important;
+  max-width: 130px !important;
+  text-align: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.lang .depth {
+  width: 130px !important;
+  min-width: 130px !important;
+  max-width: 130px !important;
+}
+
+.lang .depth ul li a,
+.lang .depth ul li a span {
+  display: block !important;
+  width: 130px !important;
+  min-width: 130px !important;
+  max-width: 130px !important;
+  padding-left: 10px !important;
+  text-align: left !important;
+}
+
+.width_170 {
+  width: 130px !important;
+  min-width: 130px !important;
+  max-width: 130px !important;
+}
