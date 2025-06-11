@@ -1666,3 +1666,16 @@ header .main-nav .lang .depth a {
   white-space: nowrap;
   text-align: left;
 }
+
+/* ============ [드롭다운 리스트와 버튼 너비 조정 - 160px 고정] ============ */
+.lang > button {
+  width: 160px;
+}
+
+.lang .depth {
+  width: 160px;
+}
+
+.lang .depth ul li a {
+  width: 100%;
+}
