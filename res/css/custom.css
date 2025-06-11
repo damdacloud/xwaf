@@ -1679,3 +1679,38 @@ header .main-nav .lang .depth a {
 .lang .depth ul li a {
   width: 100%;
 }
+/* ============ [최종 수정: 강제 160px 고정 & width_170 클래스 무효화] ============ */
+.lang {
+  position: relative;
+  display: inline-block;
+}
+
+.lang > button {
+  width: 160px !important;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.lang .depth {
+  width: 160px !important;
+}
+
+.lang .depth ul li a,
+.lang .depth ul li a span {
+  width: 100% !important;
+  display: block;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* .width_170 강제 무시 */
+.width_170 {
+  width: 160px !important;
+}
+
