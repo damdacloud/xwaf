@@ -447,3 +447,21 @@ $(function(){
             });         
             
         })
+
+document.addEventListener("DOMContentLoaded", function () {
+  const langMap = {
+    ko: "한국어",
+    en: "English",
+    ja: "日本語",
+    fr: "Français",
+    de: "Deutsch",
+    es: "Español",
+    lu: "Lux."
+  };
+
+  const currentLang = location.pathname.split("/")[1] || "ko";
+  const displayLang = langMap[currentLang] || "Language";
+
+  const langButton = document.getElementById("lang-button");
+  if (langButton) langButton.textContent = displayLang;
+});
