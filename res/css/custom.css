@@ -1636,3 +1636,33 @@ header .main-nav .lang .depth a {
 .lang .depth ul li a span {
   text-align: left;
 }
+
+/* ============ [드롭다운 리스트와 버튼 너비 일치화] ============ */
+.lang {
+  position: relative;
+  display: inline-block;
+}
+
+.lang > button {
+  width: 180px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.lang .depth {
+  width: 180px; /* 드롭다운 전체 너비 버튼과 일치 */
+}
+
+.lang .depth ul li a {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: left;
+}
