@@ -1662,7 +1662,7 @@ header .main-nav .lang .depth a {
   text-align: left;
 }
 
-/* ============ [드롭다운 리스트와 버튼 너비 조정 - 160px 고정] ============ */
+/* ============ [드롭다운 리스트와 버튼 너비 조정 - 140px 고정] ============ */
 .lang > button {
   width: 140px;
 }
@@ -1674,7 +1674,7 @@ header .main-nav .lang .depth a {
 .lang .depth ul li a {
   width: 100%;
 }
-/* ============ [최종 수정: 강제 160px 고정 & width_170 클래스 무효화] ============ */
+/* ============ [최종 수정: 강제 140px 고정 & width_170 클래스 무효화] ============ */
 .lang {
   position: relative;
   display: inline-block;
@@ -1709,5 +1709,8 @@ header .main-nav .lang .depth a {
   width: 140px !important;
 }
 
-
+/* ============ [선택된 언어 버튼 중앙 정렬] ============ */
+.lang > button {
+  text-align: center !important;
+}
 
