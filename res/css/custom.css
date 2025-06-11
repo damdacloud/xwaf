@@ -1709,4 +1709,21 @@ header .main-nav .lang .depth a {
   width: 160px !important;
 }
 
+/* ============ [버튼 너비 최적화 - Français 기준 정렬] ============ */
+.lang > button {
+  width: 145px !important;
+}
+
+.lang .depth {
+  width: 145px !important;
+}
+
+.lang .depth ul li a {
+  width: 100% !important;
+}
+
+.width_170 {
+  width: 145px !important;
+}
+
 
