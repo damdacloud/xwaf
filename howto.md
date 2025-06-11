@@ -25,7 +25,8 @@ xwaf/
 │   │   └── common.js             ← 공통 스크립트 및 언어 버튼 처리
 │   └── include/
 │       ├── nav.html              ← 공통 네비게이션
-│       ├── address.html          ← 공통 주소
+│       ├── contactus.html        ← 공통 연락처
+│       ├── footer.html           ← 공통 Copyright
 │       └── scripts.html          ← 공통 JS 파일 import
 └── README.md
 ```
