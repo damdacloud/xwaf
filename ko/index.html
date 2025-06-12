@@ -27,34 +27,38 @@
 	<link href="../res/css/magnific-popup.css" rel="stylesheet">
 	<link href="../res/css/custom.css" rel="stylesheet" media="screen">
 
-<style>
-.swiper-button-prev,
-.swiper-button-next {
-  color: #333;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  top: 45%;
-  z-index: 10;
-}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("../res/include/ourclients.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("ourclients-container").innerHTML = html;
 
-/* 위치 조정: 버튼을 더 바깥으로 */
-.swiper-button-prev {
-  left: -60px !important;
-}
-.swiper-button-next {
-  right: -60px !important;
-}
-
-/* 아이콘 크기 */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 18px;
-}
-</style>
-
+      new Swiper(".ourclient-slider", {
+        loop: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        slidesPerView: 3,
+        spaceBetween: 30,
+        breakpoints: {
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 6 }
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      });
+    });
+});
+</script>
 
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar-scrollspy" data-bs-offset="0">
