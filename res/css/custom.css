@@ -1787,3 +1787,18 @@ header .main-nav .lang .depth a {
 .swiper-button-next {
   right: -60px !important;
 }
+
+.client-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;              /* 로고 간 간격 */
+  flex-wrap: wrap;        /* 반응형에서 줄바꿈 */
+  padding: 10px 0;
+}
+
+.client-logo img {
+  max-width: 120px;       /* ✅ 로고 최대 너비 제한 */
+  height: auto;
+  object-fit: contain;
+}
