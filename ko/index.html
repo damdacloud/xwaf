@@ -535,7 +535,28 @@
 	    // our clients
 	    fetch("../res/include/ourclients.html")
 	      .then(res => res.text())
-	      .then(html => document.getElementById("ourclients-container").innerHTML = html);
+	      .then(html => {
+	        document.getElementById("ourclients-container").innerHTML = html;
+	
+	        // ✅ Swiper 초기화는 fetch 이후에 실행
+	        new Swiper(".ourclient-slider", {
+	          loop: true,
+	          autoplay: {
+	            delay: 2000,
+	            disableOnInteraction: false
+	          },
+	          slidesPerView: 3,
+	          spaceBetween: 30,
+	          breakpoints: {
+	            768: {
+	              slidesPerView: 4
+	            },
+	            1024: {
+	              slidesPerView: 6
+	            }
+	          }
+	        });
+	      });
 	
 	    // contact us
 	    fetch("../res/include/contactus.html")
@@ -548,6 +569,7 @@
 	      .then(html => document.getElementById("footer-container").innerHTML = html);
 	  });
 	</script>
+
 	
 </body>
 </html>
