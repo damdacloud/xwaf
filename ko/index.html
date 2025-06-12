@@ -532,7 +532,12 @@
 	      .then(res => res.text())
 	      .then(html => document.getElementById("navbar-container").innerHTML = html);
 	
-	    // contactus
+	    // our clients
+	    fetch("../res/include/ourclients.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("ourclients-container").innerHTML = html);
+	
+	    // contact us
 	    fetch("../res/include/contactus.html")
 	      .then(res => res.text())
 	      .then(html => document.getElementById("contactus-container").innerHTML = html);
