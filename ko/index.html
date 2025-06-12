@@ -568,13 +568,13 @@
 		  .then(html => {
 		    document.getElementById("ourclients-container").innerHTML = html;
 		
-		    // ✅ Swiper 초기화는 fetch 이후에 실행
+		    // 반드시 여기에 Swiper 초기화
 		    new Swiper(".ourclient-slider", {
 		      loop: true,
 		      autoplay: {
 		        delay: 2000,
 		        disableOnInteraction: false,
-		        pauseOnMouseEnter: true  // ✅ 마우스 올리면 일시 정지
+		        pauseOnMouseEnter: true
 		      },
 		      slidesPerView: 3,
 		      spaceBetween: 30,
@@ -582,16 +582,17 @@
 		        768: { slidesPerView: 4 },
 		        1024: { slidesPerView: 6 }
 		      },
-		      pagination: {               // ✅ 페이징 추가
+		      pagination: {
 		        el: ".swiper-pagination",
 		        clickable: true
 		      },
-		      navigation: {               // ✅ 좌우 버튼 추가
+		      navigation: {
 		        nextEl: ".swiper-button-next",
 		        prevEl: ".swiper-button-prev"
 		      }
 		    });
 		  });
+
 
 	
 	    // contact us
