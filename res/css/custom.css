@@ -1765,26 +1765,27 @@ header .main-nav .lang .depth a {
 /* Swiper 네비게이션 버튼 커스터마이징 */
 .swiper-button-prev,
 .swiper-button-next {
-  color: #444;                           /* 버튼 아이콘 색상 */
-  background: rgba(255, 255, 255, 0.95); /* 반투명 흰 배경 */
-  border-radius: 50%;                   /* 원형 버튼 */
+  color: #444;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  top: 45%;                             /* 수직 중앙 */
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 10;
 }
 
-/* 버튼 아이콘 크기 */
+/* 아이콘 크기 */
 .swiper-button-prev::after,
 .swiper-button-next::after {
   font-size: 18px;
 }
 
-/* 버튼 위치 조정: 로고에서 멀리 띄우기 */
+/* 위치: 로고와 충분히 띄움 */
 .swiper-button-prev {
-  left: -40px !important;
+  left: -60px !important;
 }
 .swiper-button-next {
-  right: -40px !important;
+  right: -60px !important;
 }
