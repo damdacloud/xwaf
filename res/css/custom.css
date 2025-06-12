@@ -1765,26 +1765,25 @@ header .main-nav .lang .depth a {
 /* Swiper 네비게이션 버튼 커스터마이징 */
 .swiper-button-prev,
 .swiper-button-next {
-  color: #444 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-radius: 50% !important;
-  width: 40px !important;
-  height: 40px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  z-index: 9999 !important;
+  color: #444;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  font-size: 18px !important;
+  font-size: 18px;
 }
 
 .swiper-button-prev {
   left: -60px !important;
 }
-
 .swiper-button-next {
   right: -60px !important;
 }
