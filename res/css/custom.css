@@ -1761,7 +1761,7 @@ header .main-nav .lang .depth a {
   max-width: 110px !important;
 }
 
-/* Swiper 네비게이션 버튼 */
+/* Swiper 네비게이션 버튼 커스터마이징 */
 .swiper-button-prev,
 .swiper-button-next {
   color: #444;
@@ -1773,7 +1773,7 @@ header .main-nav .lang .depth a {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 100;
 }
 
 .swiper-button-prev::after,
@@ -1781,7 +1781,7 @@ header .main-nav .lang .depth a {
   font-size: 18px;
 }
 
-/* 버튼 위치 */
+/* 버튼 위치 조정 (더 이상 잘리지 않게) */
 .swiper-button-prev {
   left: -20px;
 }
@@ -1789,24 +1789,13 @@ header .main-nav .lang .depth a {
   right: -20px;
 }
 
-/* 슬라이더 전체 여백 확보 */
-.ourclient-slider {
-  padding: 0 80px;
-  overflow: visible !important;
-}
-
-/* 각 슬라이드 내부 여백 */
-.swiper-slide {
-  padding: 0 20px;
-}
-
-/* 로고 묶음 정렬 */
+/* 슬라이더 내부 로고 정렬 */
 .client-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 24px;         /* 로고 간격 */
+  flex-wrap: wrap;   /* 줄바꿈 허용 */
   padding: 10px 0;
 }
 
@@ -1815,5 +1804,21 @@ header .main-nav .lang .depth a {
   height: auto;
   object-fit: contain;
 }
+
+.ourclient-slider {
+  padding: 0 60px;
+  overflow: hidden !important;
+}
+
+/* 슬라이드 자체의 좌우 여백 */
+.swiper-slide {
+  padding: 0 20px;
+}
+
+/* swiper가 버튼을 보이도록 */
+.swiper {
+  overflow: visible !important;
+}
+
 
 
