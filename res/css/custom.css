@@ -1763,6 +1763,7 @@ header .main-nav .lang .depth a {
 
 
 /* Swiper 네비게이션 버튼 커스터마이징 */
+/* 슬라이더 버튼 위치 및 스타일 */
 .swiper-button-prev,
 .swiper-button-next {
   color: #444;
@@ -1771,9 +1772,10 @@ header .main-nav .lang .depth a {
   width: 40px;
   height: 40px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 9999;
+  z-index: 100;
 }
 
 .swiper-button-prev::after,
@@ -1782,23 +1784,30 @@ header .main-nav .lang .depth a {
 }
 
 .swiper-button-prev {
-  left: -60px !important;
-}
-.swiper-button-next {
-  right: -60px !important;
+  left: -20px; /* 좌측 버튼 간격 */
 }
 
+.swiper-button-next {
+  right: -20px; /* 우측 버튼 간격 */
+}
+
+/* 슬라이더 안 로고 간격 조정 */
 .client-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;              /* 로고 간 간격 */
-  flex-wrap: wrap;        /* 반응형에서 줄바꿈 */
+  gap: 24px;
+  flex-wrap: wrap;
   padding: 10px 0;
 }
 
 .client-logo img {
-  max-width: 120px;       /* ✅ 로고 최대 너비 제한 */
+  max-width: 120px;
   height: auto;
   object-fit: contain;
+}
+
+/* 슬라이드 좌우 여백 */
+.swiper-slide {
+  padding: 0 20px;
 }
