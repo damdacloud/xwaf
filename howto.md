@@ -2,40 +2,79 @@
 
 ```
 xwaf/
-├── index.html                      ← 루트 접근용 (선택)
+├── index.html                      ← 루트(선택적으로 리다이렉트용)
 ├── ko/
-│   └── index.html                 ← 한국어 페이지
+│   └── index.html                 ← 한국어 메인
 ├── en/
-│   └── index.html                 ← 영어 페이지
+│   └── index.html                 ← 영어 메인
 ├── ja/
-│   └── index.html                 ← 일본어 페이지
+│   └── index.html                 ← 일본어 메인
 ├── fr/
-│   └── index.html                 ← 프랑스어 페이지
+│   └── index.html                 ← 프랑스어 메인
 ├── de/
-│   └── index.html                 ← 독일어 페이지
+│   └── index.html                 ← 독일어 메인
 ├── es/
-│   └── index.html                 ← 스페인어 페이지
+│   └── index.html                 ← 스페인어 메인
 ├── lu/
-│   └── index.html                 ← 룩셈부르크어 페이지
+│   └── index.html                 ← 룩셈부르크어 메인
 ├── res/
 │   ├── css/
+│   │   ├── bootstrap.min.css
+│   │   ├── font-awesome-all.css
+│   │   ├── flaticon.css
+│   │   ├── swiper.min.css
+│   │   ├── animate.css
+│   │   ├── magnific-popup.css
+│   │   └── custom.css             ← Swiper 관련 CSS 포함
 │   ├── fonts/
 │   ├── images/
 │   ├── js/
-│   │   └── common.js             ← 공통 스크립트 및 언어 버튼 처리
+│   │   ├── jquery-3.6.0.min.js
+│   │   ├── bootstrap.min.js
+│   │   ├── validator.min.js
+│   │   ├── jquery.waypoints.min.js
+│   │   ├── jquery.counterup.min.js
+│   │   ├── wow.js
+│   │   ├── swiper.min.js
+│   │   ├── jquery.magnific-popup.min.js
+│   │   ├── parallaxie.js
+│   │   ├── SmoothScroll.js
+│   │   ├── function.js
+│   │   ├── aos.js
+│   │   ├── fancybox.umd.js
+│   │   └── common.js             ← 언어 버튼 자동 설정
 │   └── include/
-│       ├── nav.html              ← 공통 네비게이션
-│       ├── contactus.html        ← 공통 연락처
-│       ├── footer.html           ← 공통 Copyright
-│       └── scripts.html          ← 공통 JS 파일 import
+│       ├── nav.html              ← 상단 메뉴 + 언어 선택
+│       ├── footer.html           ← 하단 카피라이트
+│       ├── scripts.html          ← JS import용 (공통)
+│       ├── ourclients-ko.html
+│       ├── ourclients-en.html
+│       ├── contactus-ko.html
+│       ├── contactus-en.html
+│       ├── contactus-ja.html
+│       ├── contactus-fr.html
+│       ├── contactus-de.html
+│       ├── contactus-es.html
+│       └── contactus-lu.html
 └── README.md
 ```
 
 ---
 
-## ✅ 각 index.html 구조 요약 (`ko/index.html` 등)
+---
 
-### `<header>` 부분
+## ✅ 공통 로딩 구조
+
+각 언어별 `/ko/index.html`, `/en/index.html` 등의 구성에서 다음 영역이 공통적으로 포함됨:
+
+### 🔹 `<head>` 내 CSS 로드
+
+```html
+<link href="../res/css/bootstrap.min.css" rel="stylesheet">
+<link href="../res/css/custom.css" rel="stylesheet"> <!-- Swiper CSS 포함 -->
+```
+
+### 🔹 `<header>` 영역
 
 ```html
 <header>
@@ -43,86 +82,73 @@ xwaf/
 </header>
 ```
 
-### `<body>` 끝나기 전
+### 🔹 콘텐츠 중간 (예: 클라이언트 로고)
 
 ```html
-<div id="scripts-container"></div>
+<section id="clients">
+  <div id="ourclients-container"></div>
+</section>
 ```
 
-### 맨 아래에 추가되는 JavaScript
+### 🔹 연락처 영역
 
 ```html
-<script>
-  // nav 삽입
-  fetch("../res/include/nav.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("navbar-container").innerHTML = html);
+<section id="contact">
+  <div id="contactus-container"></div>
+</section>
+```
 
-  // script 삽입
-  fetch("../res/include/scripts.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("scripts-container").innerHTML = html);
+### 🔹 푸터
+
+```html
+<footer>
+  <div id="footer-container"></div>
+</footer>
+```
+
+---
+
+## ✅ `<body>` 끝에 공통 JS 스크립트 및 로더
+
+```html
+<script src="../res/js/jquery-3.6.0.min.js"></script>
+...
+<script src="../res/js/common.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 공통 요소 로딩
+    fetch("../res/include/nav.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("navbar-container").innerHTML = html);
+
+    fetch("../res/include/ourclients-ko.html") // 언어별 맞게 변경
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("ourclients-container").innerHTML = html;
+        new Swiper(".ourclient-slider", { ... }); // Swiper 초기화
+      });
+
+    fetch("../res/include/contactus-ko.html") // 언어별 맞게 변경
+      .then(res => res.text())
+      .then(html => document.getElementById("contactus-container").innerHTML = html);
+
+    fetch("../res/include/footer.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("footer-container").innerHTML = html);
+  });
 </script>
 ```
 
 ---
 
-## ✅ nav.html 핵심 구조
+## ✅ 제안 사항
 
-```html
-<!-- nav.html -->
-<nav>...</nav>  <!-- 공통 메뉴 -->
-<div class="lang">
-  <button type="button" id="lang-button">Language</button>
-  <div class="depth">
-    <ul>
-      <li><a href="https://xwaf.io/en/" target="_blank">English</a></li>
-      ...
-    </ul>
-  </div>
-</div>
-```
-
----
-
-## ✅ scripts.html 예시
-
-```html
-<!-- scripts.html -->
-<script src="/res/js/aos.js"></script>
-<script src="/res/js/fancybox.umd.js"></script>
-<script src="/res/js/common.js"></script>
-```
-
----
-
-## ✅ common.js 내 언어 버튼 자동 처리
-
-```javascript
-document.addEventListener("DOMContentLoaded", function () {
-  const langMap = {
-    ko: "한국어",
-    en: "English",
-    ja: "日本語",
-    fr: "Français",
-    de: "Deutsch",
-    es: "Español",
-    lu: "Lux."
-  };
-
-  const currentLang = location.pathname.split("/")[1] || "ko";
-  const displayLang = langMap[currentLang] || "Language";
-  const btn = document.getElementById("lang-button");
-  if (btn) btn.textContent = displayLang;
-});
-```
-
----
-
-## ✅ 동작 흐름 요약
-
-1. 각 언어 페이지(`ko/index.html`, `en/index.html` 등)는 공통 `nav.html`, `scripts.html`을 fetch로 불러옴
-2. `nav.html`은 상단 네비게이션 + 언어 선택 메뉴 포함
-3. `common.js`는 현재 언어를 자동으로 감지해 버튼에 표시 (`한국어`, `English`, ...)
+| 항목                                                         | 제안                                                                  |
+| ---------------------------------------------------------- | ------------------------------------------------------------------- |
+| 💬 `ourclients.html` → 언어별로 분리된 것은 매우 적절합니다.               | 향후 언어 추가 시 `ourclients-xx.html` 방식 유지 추천                            |
+| 🧠 `contactus.html`도 언어별로 잘 나눠져 있으므로, 자동 언어 감지로 include 가능 | `common.js`에서 현재 언어 코드 추출 후 동적 경로 구성도 고려 가능                         |
+| ✅ `swiper`는 반드시 `Swiper()` 호출 위치가 DOM 삽입 이후여야 하므로 현재 위치 유지 | 예: `fetch().then().then(() => new Swiper(...))` 형식은 OK              |
+| 🎯 `custom.css` 맨 아래 Swiper용 클래스 스타일 필수                    | 누락 시 layout 무너질 수 있으므로 확인 필요 (`.swiper-slide`, `.swiper-wrapper` 등) |
 
 ---
