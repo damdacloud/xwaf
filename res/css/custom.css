@@ -1808,6 +1808,7 @@ header .main-nav .lang .depth a {
 .ourclient-slider {
   padding: 0 60px;
   overflow: hidden !important;
+  position: relative;
 }
 
 /* 슬라이드 자체의 좌우 여백 */
