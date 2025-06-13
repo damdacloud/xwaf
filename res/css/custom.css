@@ -1773,22 +1773,38 @@ header .main-nav .lang .depth a {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 9999;
   pointer-events: auto;
   overflow: hidden;
 }
 
+/* 버튼 내부 완전 덮기용 ::before */
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Swiper 기본 화살표 */
 .swiper-button-prev::after,
 .swiper-button-next::after {
   font-size: 18px;
+  position: relative;
+  z-index: 1;
 }
 
-/* 버튼 위치 조정 (더 이상 잘리지 않게) */
+/* 버튼 위치 (PC 기준) */
 .swiper-button-prev {
-  left: 5px; /* 또는 원하는 위치 */
+  left: -20px;
 }
 .swiper-button-next {
-  right: 5px; /* 또는 원하는 위치 */
+  right: -20px;
 }
 
 /* 슬라이더 내부 로고 정렬 */
@@ -1796,17 +1812,21 @@ header .main-nav .lang .depth a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;         /* 로고 간격 */
-  flex-wrap: wrap;   /* 줄바꿈 허용 */
+  gap: 24px;
+  flex-wrap: wrap;
   padding: 10px 0;
 }
 
+/* 이미지가 버튼 위로 안 올라오게 */
 .client-logo img {
   max-width: 120px;
   height: auto;
   object-fit: contain;
+  position: relative;
+  z-index: 0;
 }
 
+/* 슬라이더 컨테이너 */
 .ourclient-slider {
   padding: 0 60px;
   margin: 0 auto;
@@ -1814,21 +1834,63 @@ header .main-nav .lang .depth a {
   position: relative;
 }
 
-/* 슬라이드 자체의 좌우 여백 */
+/* 슬라이드 자체 여백 제거 */
 .swiper-slide {
   box-sizing: border-box;
   max-width: 100%;
   overflow: hidden;
 }
 
-/* swiper가 버튼을 보이도록 */
+/* swiper 본체 */
 .swiper {
   overflow: hidden !important;
   position: relative;
 }
-
 .swiper-wrapper {
   backface-visibility: hidden;
   will-change: transform;
-  transform: translateZ(0); /* GPU 최적화 */
+  transform: translateZ(0);
+}
+
+/* ✅ 반응형 미디어 쿼리 */
+@media (max-width: 1024px) {
+  .swiper-button-prev {
+    left: 0;
+  }
+  .swiper-button-next {
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-button-prev {
+    left: 4px;
+  }
+  .swiper-button-next {
+    right: 4px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 28px;
+    height: 28px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 14px;
+  }
 }
