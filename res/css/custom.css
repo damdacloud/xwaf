@@ -1774,6 +1774,8 @@ header .main-nav .lang .depth a {
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;
+  pointer-events: all;
+  overflow: hidden;
 }
 
 .swiper-button-prev::after,
@@ -1806,18 +1808,27 @@ header .main-nav .lang .depth a {
 }
 
 .ourclient-slider {
-  padding: 0 60px;
+  padding: 0;
+  margin: 0 auto;
   overflow: hidden !important;
   position: relative;
 }
 
 /* 슬라이드 자체의 좌우 여백 */
 .swiper-slide {
-  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* swiper가 버튼을 보이도록 */
 .swiper {
   overflow: hidden !important;
   position: relative;
+}
+
+.swiper-wrapper {
+  backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0); /* GPU 최적화 */
 }
