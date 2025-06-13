@@ -1818,8 +1818,5 @@ header .main-nav .lang .depth a {
 
 /* swiper가 버튼을 보이도록 */
 .swiper {
-  overflow: visible !important;
+  overflow: hidden !important;
 }
-
-
-
