@@ -1813,10 +1813,11 @@ header .main-nav .lang .depth a {
 
 /* 슬라이드 자체의 좌우 여백 */
 .swiper-slide {
-  padding: 0 20px;
+  padding: 0;
 }
 
 /* swiper가 버튼을 보이도록 */
 .swiper {
   overflow: hidden !important;
+  position: relative;
 }
