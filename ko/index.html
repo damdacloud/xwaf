@@ -567,7 +567,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	      .then(html => document.getElementById("navbar-container").innerHTML = html);
 	
 	    // our clients
-	    fetch("../res/include/ourclients.html")
+	    fetch("../res/include/ourclients-ko.html")
 		  .then(res => res.text())
 		  .then(html => {
 		    document.getElementById("ourclients-container").innerHTML = html;
@@ -600,7 +600,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	
 	    // contact us
-	    fetch("../res/include/contactus.html")
+	    fetch("../res/include/contactus-ko.html")
 	      .then(res => res.text())
 	      .then(html => document.getElementById("contactus-container").innerHTML = html);
 	
