@@ -1736,7 +1736,7 @@ header .main-nav .lang .depth a {
   max-width: 110px !important;
   text-align: center !important;
   padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-right: 22px !important;
 }
 
 .lang .depth {
