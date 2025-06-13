@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+    <meta name="description" content="PLURA-XDR 기반의 xWAF는 실시간 트래픽 분석과 지능형 보안 정책을 통해 OWASP Top 10, 크리덴셜 스터핑, 웹셀, 제로데이 등 다양한 웹 공격을 자동 탐지하고 차단합니다.">
+    <meta name="keywords" content="WAF, EDR, SIEM, APT, Credential Stuffing, Hacking, MITRE ATT&CK, OWASP">
+    <meta name="keywords" content="로그 분석, 해킹 탐지, 시스로그, 이벤트 로그, 모의 해킹, 클라우드 보안 서비스, 보안솔루션, 서버보안, APT 방어, APT 탐지,네트워크 보안, 기업보안솔루션, 기업 IT 보안, 최신보안솔루션, 통합로그관리솔루션, 보안 서비스, 프루라, 큐비트, 큐비트 시큐리티, 해킹, 정보 보안, 보안서비스, 로그 취합, 실시간 해킹 탐지, 보안관제, 정보보안전문기업, 전자금융감독규정, 데이터유출, 데이터 유출, 마이터, 어택, 엔드포인트보안, 호스트보안, 고급감사정책, 감사정책, PLURA, Information Security, Cyber Security, Log Analysis, Hacking Detection, syslog, auditlog, Event Log, Cloud Security, APT Hacking, hacking prevention, IoT, Qubit Security, hacking, Real Time Hacking detection, Real Time Anti Hacking Cloud SaaS, ISMS, PCI DSS, Audit, MITRE ATT&CK, EDR">
+    <link rel="shortcut icon" href="../res/images/favicon.ico">
+    <link rel="canonical" href="https://www.plura.io/">
+    <link rel="apple-touch-icon-precomposed" href="">
+    <meta property="og:title" content="次世代クラウドWAF、xWAF">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="WAF, EDR, SIEM, APT, Credential Stuffing, Hacking, MITRE ATT&CK, OWASP">
+    <meta property="og:url" content="https://www.plura.io/">
+    <meta property="og:image" content="">
+    <title>次世代クラウドWAF、xWAF</title>
+	<link href="../res/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../res/css/font-awesome-all.css" rel="stylesheet" media="screen">
+	<link href="../res/css/flaticon.css" rel="stylesheet" media="screen">
+	<link href="../res/css/swiper.min.css" rel="stylesheet">
+	<link href="../res/css/animate.css" rel="stylesheet">
+	<link href="../res/css/magnific-popup.css" rel="stylesheet">
+	<link href="../res/css/custom.css" rel="stylesheet" media="screen">
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar-scrollspy" data-bs-offset="0">
+	
+	<!-- Preloader starts -->
+	<div class="preloader">
+		<span class="loader">
+			<span class="loader-inner"></span>
+		</span>
+	</div>
+	<!-- Preloader Ends -->
+
+	<!-- Header Section Starts-->
+	<header>
+		<nav class="navbar navbar-expand-lg fixed-top navbar-scrollspy main-menu" >
+			<div class="container">
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><img src="../res/images/logo.png" class="logo" alt=""></a>
+
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="fa-solid fa-bars"></span>
+					</button>
+				</div>
+				<!-- End Header Navigation -->
+				
+				<!-- Navbar Start -->
+				<div class="collapse navbar-collapse main-nav" id="navbar-menu">
+					<ul class="navbar-nav nav ml-auto mr-md-3" style="margin-right: 20px;">
+						<li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+						<li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+						<li class="nav-item"><a href="#technology" class="nav-link">Technology</a></li>
+						<li class="nav-item"><a href="#benefits" class="nav-link">Benefits</a></li>
+						<li class="nav-item" style="display:none"><a href="#testimonial" class="nav-link">Testimonial</a></li>
+						<li class="nav-item" style="display:none"><a href="#pricing" class="nav-link">Pricing</a></li>
+						<li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+					</ul>
+                    
+                    <div class="lang">
+                        <button type="button" class="">日本語</button>
+                        <div class="depth">
+                            <ul>
+                                <li><a class="dis-block width_150 cursor_p" href="https://xwaf.io/ko/" target="_blank"><span>한국어</span></a></li>
+                                <li><a class="dis-block width_150 cursor_p" href="https://xwaf.io/en/" target="_blank"><span>English</span></a></li>
+                                <li><a class="dis-block width_150 cursor_p" href="https://xwaf.io/lu/" target="_blank"><span>Lux.</span></a></li>
+                                <li><a class="dis-block width_150 cursor_p" href="https://xwaf.io/de/" target="_blank"><span>Deutsch</span></a></li>
+                                <li><a class="dis-block width_150 cursor_p" href="https://xwaf.io/fr/" target="_blank"><span>Français</span></a></li>
+                                <li><a class="dis-block width_150 cursor_p" href="https://xwaf.io/es/" target="_blank"><span>Español</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    
+				</div>
+				<!-- Navbar End -->
+			</div>
+		</nav>
+	</header>
+	<!-- Header Section Ends-->
+	
+	<!-- Banner Section Starts -->
+	<section class="banner parallaxie" id="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div class="header-content wow fadeInUp" style="padding-top:0px">
+						<h2><span style="font-size:24px;">PLURA-XDR連携</span></h2>
+						<h2>次世代クラウドWAF、xWAF</h2>
+						<p style="font-size:16px;  font-weight:400; word-break:keep-all; margin-bottom: 0.8em; ">PLURA-XDRと統合されたxWAFは、ウェブアプリケーション保護に最適なソリューションです。<br>AIによる検知と自動ブロック機能で、攻撃をリアルタイムに防御します。</p>
+                        <p style="font-size:15px;  font-weight:400; word-break:keep-all; ">DDoS、クレデンシャルスタッフィング、ウェブシェル、情報漏洩、ゼロデイ攻撃まで、<br>インテリジェントルールとトラフィック分析により積極的な対応が可能です。</p>
+						<div class="buy-button">
+							<a href="https://www.plura.io/ko" target="_blank" class="btn-buynow" style="text-transform:none">Try xWAF</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6 col-sm-6">
+					<div class="slider-image wow fadeInRight" style="padding:20px">
+						<p> &nbsp </p>
+						<p> &nbsp </p>						
+						<img src="../res/images/header_ja.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+	<!-- Banner Section Ends -->
+	
+	<!-- Step Section starts -->
+	<div class="step-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="step-container">
+						<div class="row">
+							<!-- Step start -->
+							<div class="col-md-4 col-sm-4">
+								<div class="step-single wow fadeInUp" data-wow-delay="0.2s">
+									<div class="icon-box">
+										<i class="flaticon-login"></i>
+									</div>
+									<h3>WAF</h3>
+									<p>OWASP TOP 10対応<br>クレデンシャルスタッフィングの検知・遮断</p>
+								</div>
+							</div>
+							<!-- Step end -->
+							
+							<!-- Step start -->
+							<div class="col-md-4 col-sm-4">
+								<div class="step-single wow fadeInUp" data-wow-delay="0.4s">
+									<div class="icon-box">
+										<i class="flaticon-login-1"></i>
+									</div>
+									<h3>EDR</h3>
+									<p>MITRE ATT&amp;CK対応<br>ウェブシェル攻撃の検知・遮断、<br>リモートライブフォレンジック</p>
+								</div>
+							</div>
+							<!-- Step end -->
+							
+							<!-- Step start -->
+							<div class="col-md-4 col-sm-4">
+								<div class="step-single wow fadeInUp" data-wow-delay="0.6s">
+									<div class="icon-box">
+										<i class="flaticon-locked"></i>
+									</div>
+									<h3>SIEM</h3>
+									<p>全パケット分析による<br>ゼロデイ攻撃の検知・遮断</p>
+								</div>
+							</div>
+							<!-- Step end -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Step Section ends -->
+	
+	<!-- Features section starts -->
+	<section class="features" id="features">
+		<div class="container">
+			<!-- Section Title start -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title wow fadeInUp">
+						<p>Explore the Awesome</p>
+						<h2>サービスの主な特徴</h2>
+					</div>
+				</div>
+			</div>
+			<!-- Section Title end -->
+			
+			<div class="row">
+				<div class="col-lg-4">
+					<!-- Feature single start -->
+					<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.2s">
+						<div class="icon-box">
+							<i class="flaticon-cpu"></i>
+						</div>
+						
+						<h3>DDoS攻撃対策</h3>
+						<p style="font-size: 14px;">オラクルOCIクラウドインフラを活用し、<br>大規模なDDoS攻撃をリアルタイムに<br>検知・遮断します。</p>
+					</div>
+					<!-- Feature single end -->
+					
+					<!-- Feature single start -->
+					<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.6s">
+						<div class="icon-box">
+							<i class="flaticon-gold-medal"></i>
+						</div>
+						
+						<h3>ウェブシェル(Web Shell)<br>検知・除去</h3>
+						<p style="font-size: 14px;">WAFでウェブシェルのアップロードや実行の試みを検知し、即座に遮断します。</p>
+						<p style="font-size: 14px;">EDRとの連携により、コードレベルの解析やサーバ内の異常な挙動まで検知・対応します。</p>
+						<p style="font-size: 14px; letter-spacing:-1px">ウェブサーバのファイル整合性をリアルタイムで検証し、不審な変更を迅速に通知します。</p>
+					</div>
+					<!-- Feature single end -->
+					
+					<!-- Feature single start -->
+					<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.8s">
+						<div class="icon-box">
+							<i class="flaticon-loupe"></i>
+						</div>
+						
+						<h3>ゼロデイ攻撃対策</h3>
+						<p style="font-size: 14px; letter-spacing:-1px">すべてのパケットとログを<br>リアルタイムに分析し、異常な挙動を<br>早期に検知して、新たな脆弱性に<br>先制的に対応します。</p>
+						<p style="font-size: 14px; letter-spacing:-1px">AI・機械学習ベースの多層分析エンジンにより、<br>未知の脅威も自動的に検知・遮断します。</p>
+					</div>
+					<!-- Feature single end -->
+					
+				</div>
+				
+				<div class="col-lg-4">
+					<div class="feature-image wow fadeInUp">
+						<div class="buynow-video" style="padding-top:0px">
+						  <a href="../res/images/feature-1.png" class="popup-video"><img src="../res/images/feature-1.png" alt="" /></a>
+					    </div>
+					</div>
+                    <div class="feature-image wow fadeInUp">
+						<div class="buynow-video" style="padding-top:0px">
+						  <a href="../res/images/feature_ja.png" class="popup-video"><img src="../res/images/feature_ja.png" alt="" /></a>
+					    </div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4">
+					<!-- Feature single start -->
+					<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.2s">
+						<div class="icon-box">
+							<i class="flaticon-support"></i>
+						</div>
+						
+						<h3 style="letter-spacing:-2px">クレデンシャルスタッフィング防御</h3>
+						<p style="font-size: 14px; letter-spacing:-1px">ログイン試行時のユーザー行動パターンを<br>分析し、アカウント乗っ取り攻撃を<br>リアルタイムに検知・遮断します。</p>
+						<p style="font-size: 14px;">IPブラックリストと異常行動検知を<br>組み合わせ、不正なアクセスを<br>積極的に遮断します。</p>
+						<p style="font-size: 14px;">CAPTCHAとの連携により追加のセキュリティ認証をサポートします。</p>
+					</div>
+					<!-- Feature single end -->
+					
+					<!-- Feature single start -->
+					<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.4s">
+						<div class="icon-box">
+							<i class="flaticon-eye"></i>
+						</div>
+						
+						<h3>情報漏洩防止</h3>
+						<p style="font-size: 14px;">個人情報、金融情報、企業機密など<br>重要情報の漏洩の試みをリアルタイムで<br>検知し、遮断します。</p>
+						<p style="font-size: 14px;">リアルタイムのトラフィック分析により<br>機密データの流出や異常行動を<br>継続的に監視します。</p>
+						<p style="font-size: 14px;">自動化されたポリシーに基づいて情報を<br>保護し、積極的な遮断機能を提供します。</p>
+					</div>
+					<!-- Feature single end -->
+					
+					<!-- Feature single start -->
+					<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.6s">
+						<div class="icon-box">
+							<i class="flaticon-stopwatch"></i>
+						</div>
+						
+						<h3>MITRE ATT&amp;CK</h3>
+						<p style="font-size: 14px;">MITRE ATT&amp;CKフレームワークに基づき、<br>サイバー攻撃を先制的に検知・対応します。</p>
+					</div>
+					<!-- Feature single end -->
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Features section ends -->
+	
+	<!-- About Product section starts -->
+	<section class="about-product" id="technology">
+		<div class="container">
+			<!-- Section Title start -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title wow fadeInUp">
+						<p>Meeting Technology and Innovation</p>
+						<h2>プラットフォームの強みを最大化した技術力</h2>
+					</div>
+				</div>
+			</div>
+			<!-- Section Title end -->
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="about-product-single">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="about-entry" style="padding-left:40px">
+									<h4>Fresh News From The Labs</h4>
+									<h3>技術的な強み</h3>
+									<p><span style="font-weight:600; color:#000; font-size:16px">高性能セキュリティエンジン：</span><br>リアルタイム分析をベースに最適化された<br>検知・遮断ポリシーを提供</p>
+									<p><span style="font-weight:600; color:#000; font-size:16px">クラウドネイティブ構造：</span><br>クラウドベースのアーキテクチャにより<br>高い拡張性と安定性を実現</p>
+									<p><span style="font-weight:600; color:#000; font-size:16px">全ペイロード分析：</span><br>全ペイロードをリアルタイムで分析し、<br>ゼロデイ攻撃に先制的に対応</p>
+									<p><span style="font-weight:600; color:#000; font-size:16px">AIベース脅威検知：</span><br>AIエンジンにより未知の攻撃や異常行動をリアルタイムで検知・遮断</p>
+									<P> &nbsp </p>
+									<a href="https://www.plura.io/signup" target="_blank" class="btn-buynow">今すぐ始める</a>
+								</div>
+							</div>
+							
+							<div class="col-md-6 col-sm-6">
+								<div class="about-image wow fadeInRight" data-wow-delay="0.2s" style="padding-top: 30px;">
+									<img src="../res/images/about-1_ja.png" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="about-product-single">
+						<div class="row">
+							<div class="col-md-6 col-sm-6 order-md-2">
+								<div class="about-entry" style="padding-left:40px">
+									
+									<h4>Fresh News From The Labs</h4>
+									<h3>導入効果</h3>
+									<p style="font-size:16px">継続的なサービス安定性の確保により<br>ビジネス継続性を保障</span></p>
+                                    <p style="font-size:16px">セキュリティ運用の自動化によりコスト削減と<br>管理負担を最小化</p>
+                                    <p style="font-size:16px">セキュリティ脅威をリアルタイムに検知し迅速に対応</p>
+									<p style="font-size:16px">強固なセキュリティ体制で企業イメージの向上と<br>顧客信頼度をアップ</p>
+									<P> &nbsp </p>
+									<a href="https://www.plura.io/signup" target="_blank" class="btn-buynow">今すぐ始める</a>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-sm-6 order-md-1"  style="padding-top: 30px;">
+								<div class="about-image wow fadeInLeft" data-wow-delay="0.4s">
+									<img src="../res/images/about-2_ja.png" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About Product section ends -->
+	
+	<!-- About Facts starts -->
+	<section class="about-facts parallaxie">
+		<div class="container">
+			<!-- Section Title start -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title wow fadeInUp">
+						<p>User Experience</p>
+						<h2>これまでのすべての実績</h2>
+					</div>
+				</div>
+			</div>
+			<!-- Section Title end -->
+			
+			<div class="row">
+				<!-- Fact single start -->
+				<div class="col-md-3 col-sm-6">
+					<div class="facts-single">
+						<h3 class="counter">2014</h3>
+						<p>Since We Started</p>
+					</div>
+				</div>
+				<!-- Fact single end -->
+				
+				<!-- Fact single start -->
+				<div class="col-md-3 col-sm-6">
+					<div class="facts-single">
+						<h3 class="counter">58</h3>
+						<p>Companies Protected</p>
+					</div>
+				</div>
+				<!-- Fact single end -->
+				
+				<!-- Fact single start -->
+				<div class="col-md-3 col-sm-6">
+					<div class="facts-single">
+						<h3 class="counter">25000</h3>
+						<p>Daily Threats Blocked</p>
+					</div>
+				</div>
+				<!-- Fact single end -->
+				
+				<!-- Fact single start -->
+				<div class="col-md-3 col-sm-6">
+					<div class="facts-single">
+						<h3 class="counter">0</h3>
+						<p>Security Incidents</p>
+					</div>
+				</div>
+				<!-- Fact single end -->
+			</div>
+		</div>
+</section>
+	<!-- About Facts ends -->
+	
+	<!-- Product Section starts -->
+	<section class="products" id="benefits">
+		<div class="container">
+			<!-- Section Title start -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title wow fadeInUp">
+						<p>Safely and without worry</p>
+						<h2>安全なシステムセキュリティサービス、xWAF</h2>
+					</div>
+				</div>
+			</div>
+			<!-- Section Title end -->
+			
+			<div class="row">
+				<!-- Product single start -->
+				<div class="col-lg-3 col-md-6">
+					<div class="product-single">
+						<div class="product-box">
+							<div class="front">
+								<img src="../res/images/product-4.png" alt="" />
+							</div>
+							<div class="back">
+								<div class="product-info">
+									<h3>xWAF</h3>
+									<p>ウェブサイトの速度を向上させ、<br>あらゆる脅威から安全に保護します。</p>
+									<a href="https://www.plura.io/signup" target="_blank" class="btn-ordernow">今すぐ始める</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Product single end -->
+				
+				<!-- Product single start -->
+				<div class="col-lg-3 col-md-6">
+					<div class="product-single">
+						<div class="product-box">
+							<div class="front">
+								<img src="../res/images/product-2.png" alt="" />
+							</div>
+							<div class="back">
+								<div class="product-info">
+									<h3>xWAF</h3>
+									<p style="margin-bottom: 0.25rem;">複雑な設定なしで、<br>最高レベルのセキュリティとパフォーマンスを体験してください。</p>
+									<a href="https://www.plura.io/signup" target="_blank" class="btn-ordernow">今すぐ始める</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Product single end -->
+				
+				<!-- Product single start -->
+				<div class="col-lg-3 col-md-6">
+					<div class="product-single">
+						<div class="product-box">
+							<div class="front">
+								<img src="../res/images/product-3.png" alt="" />
+							</div>
+							<div class="back">
+								<div class="product-info">
+									<h3>xWAF</h3>
+									<p style="margin-bottom: 0.25rem; line-height: 1rem;">DDoS攻撃、クレデンシャルスタッフィング、ボット攻撃まで！<br>リアルタイムのAI防御でウェブサイトを守ります。</p>
+									<a href="https://www.plura.io/signup" target="_blank" class="btn-ordernow" style="margin-top:3px;">今すぐ始める</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Product single end -->
+				
+				<!-- Product single start -->
+				<div class="col-lg-3 col-md-6">
+					<div class="product-single">
+						<div class="product-box">
+							<div class="front">
+								<img src="../res/images/product-1.png" alt="" />
+							</div>
+							<div class="back">
+								<div class="product-info">
+									<h3>xWAF</h3>
+									<p style="margin-bottom: 0.25rem; line-height: 1rem;">クレデンシャルスタッフィング<br>・SQLインジェクション・DDoSまで！<br>自動検知・対応で<br>セキュリティの心配なく運営できます。</p>
+									<a href="https://www.plura.io/signup" target="_blank" class="btn-ordernow" style="margin-top:3px;">今すぐ始める</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Product single end -->
+			</div>
+		</div>
+	</section>
+	<!-- Product Section ends -->
+	
+	
+	
+	<!-- Buy Now infobar section starts -->
+	<div class="buynow-infobar parallaxie">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-8">
+					<div class="section-title wow fadeInUp">
+						<p>only one choice</p>
+						<h2 style="letter-spacing:-2px">一つの攻撃も見逃さないでください。</h2>
+					</div>
+					
+					<div class="buynow-entry">
+						<p>xWAFは、PLURA-XDRの技術を活用し、AIによる自動検知と遮断、<br>さらに詳細なログ分析まで提供する統合型のWebファイアウォールです。</p>
+			<p>今すぐ導入して、より安全で強力なセキュリティ環境を体感してください。</p>		
+						<a href="https://www.plura.io/signup" target="_blank" class="btn-buynow">今すぐ始める</a>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-4">
+					<div class="buynow-video">
+						<a href="https://www.youtube-nocookie.com/embed/xkgfTmMuw4w?controls=1&amp;enablejsapi=1&amp;rel=0&amp;fs=1&amp;autoplay=1&amp;mute=1" class="popup-video"><i class="flaticon-play-button"></i></a>
+					</div>
+				</div>
+                
+                <div></div>
+			</div>
+		</div>
+	</div>
+	<!-- Buy Now infobar section ends -->
+	
+	
+	<!-- Our Clients Section starts -->
+	<div class="our-clients" style="background-color:#FFF">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="swiper swiper-container ourclient-slider">
+						<div class="swiper-wrapper">
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_kiha" src="../res/images/c_logo_kiha.png">
+                                    <img alt="logo_seoulgover" src="../res/images/c_logo_warmemo_en.png">
+                                    <img alt="logo_koreacopy" src="../res/images/c_logo_koreacopy_en.png">
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_etoos" src="../res/images/c_logo_etoos.png" />
+                                    <img alt="logo_ybmnet" src="../res/images/c_logo_ybmnet.png" />
+                                    <img alt="logo_willbes" src="../res/images/c_logo_willbes_en.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_ctstv" src="../res/images/c_logo_ctstv_en.png" />
+                                    <img alt="logo_sarang" src="../res/images/c_logo_sarang_en.png" />
+                                    <img alt="logo_archdiocese" src="../res/images/c_logo_archdiocese_en.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_nepes" src="../res/images/c_logo_skt.png" />
+                                    <img alt="logo_skt" src="../res/images/c_logo_samsung_en.png" />
+                                    <img alt="logo_posco" src="../res/images/c_logo_posco.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_bccard" src="../res/images/c_logo_bccard.png" />
+                                    <img alt="logo_kbcard" src="../res/images/c_logo_kbcard_en.png" />
+                                    <img alt="logo_hanwhalife" src="../res/images/c_logo_hanwhalife_en.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_keit" src="../res/images/c_logo_keit_en.png" />
+                                    <img alt="logo_kisa" src="../res/images/c_logo_kisa_en.png" />
+                                    <img alt="logo_seaman" src="../res/images/c_logo_seaman_en.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									 <img alt="logo_jeju" src="../res/images/c_logo_jeju.png" />
+                                     <img alt="logo_siheung" src="../res/images/c_logo_seoulgover_en.png" />
+                                     <img alt="logo_warmemo" src="../res/images/c_logo_siheung_en.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_idam" src="../res/images/c_logo_papajohns.png" />
+                                    <img alt="logo_woorishop" src="../res/images/c_logo_woorishop.png" />
+                                    <img alt="logo_platform" src="../res/images/c_logo_platform.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+							
+							<!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_contec" src="../res/images/c_logo_contec.png" />
+                                    <img alt="logo_kctc" src="../res/images/c_logo_kctc.png" />
+                                    <img alt="logo_whatap" src="../res/images/c_logo_whatap.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+                            
+                            <!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_dongguk" src="../res/images/c_logo_dongguk.png" />
+                                    <img alt="logo_kyhospital" src="../res/images/c_logo_kyhospital_en.png" />
+									<img alt="logo_commax" src="../res/images/c_logo_commax.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+                            
+                            <!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+									<img alt="logo_heungkuk" src="../res/images/c_logo_heungkuk.png" />
+                                    <img alt="logo_gkl" src="../res/images/c_logo_gkl.png" />
+                                    <img alt="logo_givita" src="../res/images/c_logo_givita.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+                            
+                            <!-- Client Logo start -->
+							<div class="swiper-slide">
+								<div class="client-logo">
+                                    <img alt="logo_cu" src="../res/images/c_logo_cu.png" />
+								</div>
+							</div>
+							<!-- Client Logo end -->
+                            
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Our Clients Section ends -->
+	
+	<!-- Contact us & Footer section starts -->
+	<section class="contactus" id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="footer-info">
+						<img src="../res/images/logo.png" alt="" />
+					
+						<p>"あなたがどこにいても、あらゆる脅威からあなたのビジネスを安全に守ります。"</p>
+						
+                        <div class="row">
+                          <div class="col-lg-3">
+						    <div class="contactinfo-single">
+							    <i class="fa-solid fa-phone"></i>
+							    <h3>Phone Number</h3>
+							    <p style="font-size: 14px;">+82-70-8802-0306</p>
+						    </div>
+                          </div>
+                          <div class="col-lg-3">						
+						    <div class="contactinfo-single">
+							    <i class="fa-solid fa-envelope"></i>
+							    <h3>Email Support</h3>
+							    <p style="font-size: 14px;">plura@damda.cloud</p>
+						    </div>
+                          </div>
+						  <div class="col-lg-6">
+						    <div class="contactinfo-single">
+							    <i class="fa-solid fa-location-dot"></i>
+							    <h3>Location</h3>
+							    <p style="font-size: 14px;">〒144-0041 <br>東京都大田区羽田空港一丁目１－４<br>ＨＩＣｉｔｙＺｏｎｅＫ２０１</p>
+						    </div>
+                          </div>
+                        </div>
+						
+						<div class="footer-social">
+							<a href="https://blog.plura.io/ja/" target="_blank"><i class="fa-solid fa-blog"></i></a>
+							<a href="https://docs.plura.io/ja/" target="_blank"><i class="fa-solid fa-book"></i></a>
+							<a href="https://www.linkedin.com/company/qubit-security" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+							<a href="https://github.com/QubitSecurity/" target="_blank"><i class="fa-brands fa-github"></i></a>
+							<a href="https://w.qubitsec.com/ja/" target="_blank"><i class="fa-solid fa-q"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Contact us & Footer section ends -->
+	
+	<!-- Footer section starts -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="jumptotop" id="back-to-top">
+						<a href="#"><i class="fa-solid fa-chevron-up"></i></a>
+					</div>
+					<div class="footer-siteinfo">
+						<p>© 2025. Damda Cloud Inc. All rights reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer section ends -->
+	
+    <!-- Jquery Library File -->
+	<script src="../res/js/jquery-3.6.0.min.js"></script>
+	<!-- Bootstrap js file -->
+	<script src="../res/js/bootstrap.min.js"></script>
+	<!-- Bootstrap form validator -->
+	<script src="../res/js/validator.min.js"></script>
+	<!-- Counterup js file -->
+	<script src="../res/js/jquery.waypoints.min.js"></script>
+    <script src="../res/js/jquery.counterup.min.js"></script>
+	<!-- Wow js file -->
+	<script src="../res/js/wow.js"></script>
+	<!-- Swiper Carousel js file -->
+	<script src="../res/js/swiper.min.js"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="../res/js/jquery.magnific-popup.min.js"></script>
+	<!-- Parallaxie js file -->
+	<script src="../res/js/parallaxie.js"></script>
+	<!-- SmoothScroll -->
+	<script src="../res/js/SmoothScroll.js"></script>
+    <!-- Main Custom js file -->
+	<script src="../res/js/function.js"></script>
+    
+    <script src="../res/js/aos.js"></script>
+    <script src="../res/js/fancybox.umd.js"></script>
+    <script src="../res/js/common.js"></script>
+
+</body>
+</html>
