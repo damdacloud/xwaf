@@ -1,0 +1,121 @@
+<!-- ✅ ourclients-en.html - 정렬된 전체 구조 -->
+<div class="our-clients">
+  <div class="container position-relative">
+    <div class="swiper ourclient-slider">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_kiha.png" alt="KIHA" />
+            <img src="../res/images/c_logo_warmemo_en.png" alt="WarMemo" />
+            <img src="../res/images/c_logo_koreacopy_en.png" alt="Koreacopy" />
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_etoos.png" alt="Etoos" />
+            <img src="../res/images/c_logo_ybmnet.png" alt="YBMNet" />
+            <img src="../res/images/c_logo_willbes_en.png" alt="Willbes" />
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_ctstv_en.png" alt="CTS" />
+            <img src="../res/images/c_logo_sarang_en.png" alt="Sarang" />
+            <img src="../res/images/c_logo_archdiocese_en.png" alt="Archdiocese" />
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_skt.png" alt="SKT" />
+            <img src="../res/images/c_logo_samsung_en.png" alt="Samsung" />
+            <img src="../res/images/c_logo_posco.png" alt="POSCO" />
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_bccard.png" alt="BCCard" />
+            <img src="../res/images/c_logo_kbcard_en.png" alt="KBCard" />
+            <img src="../res/images/c_logo_hanwhalife_en.png" alt="HanwhaLife" />
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_keit_en.png" alt="KEIT" />
+            <img src="../res/images/c_logo_kisa_en.png" alt="KISA" />
+            <img src="../res/images/c_logo_seaman_en.png" alt="Seaman" />
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_jeju.png" alt="Jeju" />
+            <img src="../res/images/c_logo_seoulgover_en.png" alt="SeoulGover" />
+            <img src="../res/images/c_logo_siheung_en.png" alt="Siheung" />
+          </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_papajohns.png" alt="PapaJohns" />
+            <img src="../res/images/c_logo_woorishop.png" alt="WooriShop" />
+            <img src="../res/images/c_logo_platform.png" alt="Platform" />
+          </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_contec.png" alt="Contec" />
+            <img src="../res/images/c_logo_kctc.png" alt="KCTC" />
+            <img src="../res/images/c_logo_whatap.png" alt="Whatap" />
+          </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_dongguk.png" alt="Dongguk" />
+            <img src="../res/images/c_logo_kyhospital_en.png" alt="KYHospital" />
+            <img src="../res/images/c_logo_commax.png" alt="Commax" />
+          </div>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_heungkuk.png" alt="Heungkuk" />
+            <img src="../res/images/c_logo_gkl.png" alt="GKL" />
+            <img src="../res/images/c_logo_givita.png" alt="Givita" />
+          </div>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="swiper-slide">
+          <div class="client-logo">
+            <img src="../res/images/c_logo_cu.png" alt="CU" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation & Pagination -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
