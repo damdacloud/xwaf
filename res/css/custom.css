@@ -1809,6 +1809,7 @@ header .main-nav .lang .depth a {
 
 .ourclient-slider {
   padding: 0 60px;
+  margin: 0 auto;
   overflow: hidden !important;
   position: relative;
 }
