@@ -1111,6 +1111,7 @@ nav.navbar .navbar-toggler:focus{
 
 .our-clients{
 	padding: 30px 0;
+	background-color: #ffffff;
 }
 
 .client-logo{
@@ -1828,7 +1829,7 @@ header .main-nav .lang .depth a {
 
 /* 슬라이더 컨테이너 */
 .ourclient-slider {
-  padding: 0 60px;
+  padding: 0 40px;
   margin: 0 auto;
   overflow: hidden !important;
   position: relative;
