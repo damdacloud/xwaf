@@ -115,7 +115,7 @@ li.current a,ul.nav > li > a:hover{color:#319db5}
 .topnav li.current a, .topnav ul.nav > li > a:hover {color: #171A1C;}
 .topnav[class*="bg-"] li.current a, .topnav[class*="bg-"] ul.nav > li > a:hover {color: #FFF;}
 .topnav.fixed-topnav{position:fixed;width:100%;z-index:900;top:0;}
-.topnav .section{background:#3f51b5;}
+.topnav .section{background:#452781;}
 .topnav.scroll-white:not(.transparent) .section{background:#fff;}
 .topnav.bg-white .section, .topnav.scroll-white:not(.transparent) .section{background:#fff; -moz-box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
 -webkit-box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);-o-box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2)}
@@ -1055,7 +1055,3 @@ form .error {float: left;color:#8F2929;}
 .btn-vora {background-color:#b066ff; color: #fff;}
 .btn-vora:active{background:#5e2f9e;}
 .btn-vora:hover,.btn-vora:focus {background-color:#5e2f9e !important; color:#fff !important}
-.ran-box {padding:20px 30px; border:2px solid rgba(135,186,239,0.7); display:inline-block; min-width:500px; text-align:center; font-size:24px; border-radius: 50px; color:#FFF}
-@media (max-width: 570px){
-  .ran-box {padding:15px 20px; min-width:340px; font-size:16px;}
-}
