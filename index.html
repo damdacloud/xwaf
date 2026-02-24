@@ -33,18 +33,23 @@
         document.cookie = parts.join('; ');
       }
 
+      // [수정] 7개 언어 매핑 로직 추가
       function mapLang(l){
         if (!l) return 'en';
         l = l.toLowerCase();
-        if (l.indexOf('ko') === 0) return 'ko';
-        if (l.indexOf('ja') === 0) return 'ja';
-        return 'en';
+        if (l.indexOf('ko') === 0) return 'ko'; // 한국어
+        if (l.indexOf('ja') === 0) return 'ja'; // 일본어
+        if (l.indexOf('lb') === 0) return 'lux'; // 룩셈부르크어 (이미지의 Lux. 대응)
+        if (l.indexOf('de') === 0) return 'de'; // 독일어
+        if (l.indexOf('fr') === 0) return 'fr'; // 프랑스어
+        if (l.indexOf('es') === 0) return 'es'; // 스페인어
+        return 'en'; // 기본값 (영어)
       }
 
       var path = location.pathname;
 
-      // 언어 폴더에 이미 있으면 쿠키만 보정하고 종료
-      var m = /^\/(ko|ja|en)(\/|$)/.exec(path);
+      // [수정] 언어 폴더 감지 정규식 확장 (ko|ja|en|lux|de|fr|es)
+      var m = /^\/(ko|ja|en|lux|de|fr|es)(\/|$)/.exec(path);
       if (m) {
         var cur = m[1];
         if (getCookie('px_lang') !== cur) setCookie('px_lang', cur);
@@ -54,7 +59,6 @@
 
       // 루트에서만 리다이렉트
       if (path === '/' || path === '/index.html') {
-        // 구 쿠키 lang -> px_lang 마이그레이션
         var legacy = getCookie('lang');
         if (legacy && !getCookie('px_lang')) { setCookie('px_lang', mapLang(legacy)); delCookie('lang'); }
 
@@ -64,17 +68,13 @@
           setCookie('px_lang', lang);
         }
 
-        // blog처럼 /{lang}/ 로 보내도 되고, 기존대로 /{lang}/index.html 유지해도 됩니다.
         location.replace('/' + lang + '/index.html');
-        // location.replace('/' + lang + '/');  // (선택) blog와 동일한 형태
       }
     })();
   </script>
 
-  <!-- (선택) JS 비활성 fallback -->
   <noscript><meta http-equiv="refresh" content="0; url=/en/"></noscript>
 </head>
 <body>
-  <!-- Loading 문구 제거 -->
 </body>
 </html>
