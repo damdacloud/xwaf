@@ -39,6 +39,7 @@
   }
 
   body { word-break: keep-all; }
+  .banner .row { align-items: center; }
 
   .banner {
     position: relative;
@@ -88,10 +89,11 @@
 
   .header-content .xwaf-hero-title {
     color: #fff;
-    font-size: 48px;
-    line-height: 1.15;
-    letter-spacing: -1.8px;
+    font-size: 42px;
+    line-height: 1.2;
+    letter-spacing: -1.6px;
     margin-bottom: 18px;
+    max-width: 720px;
   }
 
   .xwaf-hero-title strong {
@@ -148,7 +150,8 @@
 
   .xwaf-hero-visual {
     position: relative;
-    padding: 26px;
+    padding: 22px;
+    margin-left: 16px;
     border-radius: 30px;
     background: rgba(255,255,255,.1);
     border: 1px solid rgba(255,255,255,.18);
@@ -183,8 +186,8 @@
     font-size: 12px;
   }
 
-  .xwaf-floating-card.card-a { left: -8px; bottom: 36px; }
-  .xwaf-floating-card.card-b { right: -4px; top: 42px; }
+  .xwaf-floating-card.card-a { left: -12px; bottom: 26px; }
+  .xwaf-floating-card.card-b { right: -6px; top: 30px; }
 
   .step-container,
   .feature-single,
@@ -222,8 +225,8 @@
 
   .xwaf-section-title {
     color: var(--xwaf-navy);
-    font-size: 38px;
-    line-height: 1.28;
+    font-size: 34px;
+    line-height: 1.32;
     letter-spacing: -1.3px;
     margin-bottom: 16px;
   }
@@ -271,10 +274,14 @@
     gap: 18px;
   }
 
+  .plura-waf-intro .row.align-items-center {
+    --bs-gutter-x: 3rem;
+  }
+
   .xwaf-flow-card {
     position: relative;
-    min-height: 178px;
-    padding: 24px;
+    min-height: 166px;
+    padding: 22px;
     border-radius: 24px;
     background: #fff;
     box-shadow: 0 16px 40px rgba(20, 62, 120, .10);
@@ -285,18 +292,19 @@
   .xwaf-flow-card::after {
     content: attr(data-step);
     position: absolute;
-    right: 18px;
-    bottom: -20px;
-    color: rgba(20, 99, 255, .08);
-    font-size: 78px;
+    right: 16px;
+    bottom: -12px;
+    color: rgba(20, 99, 255, .07);
+    font-size: 62px;
     font-weight: 900;
     letter-spacing: -4px;
   }
 
   .xwaf-flow-card h3 {
     color: var(--xwaf-navy);
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
+    line-height: 1.35;
   }
 
   .xwaf-flow-card p {
@@ -341,22 +349,43 @@
     margin-bottom: 4px;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1399px) {
     .header-content .xwaf-hero-title { font-size: 38px; }
+    .xwaf-hero-lead { font-size: 17px; }
+    .xwaf-hero-note { font-size: 14px; }
+    .xwaf-hero-badges li { font-size: 12px; }
+    .xwaf-hero-visual { padding: 18px; margin-left: 0; }
+    .xwaf-floating-card { min-width: 150px; padding: 12px 14px; }
+    .xwaf-section-title { font-size: 31px; }
+  }
+
+  @media (max-width: 1199px) {
+    .header-content .xwaf-hero-title { font-size: 35px; }
+    .xwaf-flow-grid { grid-template-columns: 1fr; margin-top: 28px; }
+    .plura-waf-intro .row.align-items-center { --bs-gutter-x: 1.5rem; }
+  }
+
+  @media (max-width: 991px) {
+    .header-content .xwaf-hero-title { font-size: 34px; }
     .xwaf-flow-grid { grid-template-columns: 1fr; margin-top: 28px; }
     .xwaf-floating-card { position: static; margin-top: 14px; }
-    .xwaf-hero-visual { margin-top: 34px; }
+    .xwaf-hero-visual {
+      margin: 34px auto 0;
+      max-width: 560px;
+    }
+    .plura-waf-intro .row.align-items-center { --bs-gutter-x: 1.5rem; }
   }
 
   @media (max-width: 767px) {
     .banner { padding-top: 96px; }
     .header-content { text-align: left; }
-    .header-content .xwaf-hero-title { font-size: 31px; letter-spacing: -1px; }
+    .header-content .xwaf-hero-title { font-size: 29px; letter-spacing: -1px; }
     .xwaf-hero-lead { font-size: 16px; line-height: 1.75; }
     .xwaf-hero-actions .btn-buynow { width: 100%; text-align: center; }
-    .xwaf-section-title { font-size: 29px; }
+    .xwaf-section-title { font-size: 27px; }
     .plura-waf-intro { padding: 72px 0 60px; }
     .step-single { min-height: auto; }
+    .xwaf-flow-card { min-height: auto; }
   }
 </style>
 </head>
@@ -379,7 +408,7 @@
 <section class="banner parallaxie" id="home">
 <div class="container">
 <div class="row">
-<div class="col-md-6 col-sm-6">
+<div class="col-lg-7 col-md-12">
 <div class="header-content wow fadeInUp" style="padding-top:0px">
 <div class="xwaf-hero-kicker">PLURA-WAF / PLURA-XDR連携</div>
 <h1 class="xwaf-hero-title">Web攻撃の起点から<br/><strong>サーバー内部の挙動</strong>まで可視化する<br/>次世代クラウドWebアプリケーションファイアウォール</h1>
@@ -397,7 +426,7 @@
 </div>
 </div>
 </div>
-<div class="col-md-6 col-sm-6">
+<div class="col-lg-5 col-md-12">
 <div class="slider-image wow fadeInRight xwaf-hero-visual">
 <img alt="PLURA-WAF基盤xWAFダッシュボード画面" src="../res/images/header_ja.png"/>
 <div class="xwaf-floating-card card-a">
