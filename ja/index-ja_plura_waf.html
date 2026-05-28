@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="index,follow" name="robots"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="PLURA-WAF基盤のxWAFは、元のWebリクエスト／レスポンス本文とログをリアルタイムに分析し、OWASP Top 10、クレデンシャルスタッフィング、Webシェル、データ漏洩、ゼロデイ攻撃を自動検知・遮断します。" name="description"/>
+<meta content="WAF, EDR, SIEM, APT, Credential Stuffing, Hacking, MITRE ATT&amp;CK, OWASP, PLURA-WAF, Web Body Analysis, Zero-Day Detection, Cloud WAF, Webシェル, ゼロデイ検知" name="keywords"/>
+<meta content="WAF, EDR, SIEM, APT, Credential Stuffing, Hacking, MITRE ATT&amp;CK, OWASP, PLURA-WAF, Web Body Analysis, Zero-Day Detection, Cloud WAF, Webシェル, ゼロデイ検知" name="keywords"/>
+<link href="../res/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://xwaf.io/ja/" rel="canonical"/>
+<link href="" rel="apple-touch-icon-precomposed"/>
+<meta content="PLURA-WAF基盤の次世代クラウドWebアプリケーションファイアウォール、xWAF" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="PLURA-WAF基盤のxWAFは、元のWebリクエスト、レスポンス、ログを分析し、Web攻撃の起点からサーバー内部の挙動まで検知・遮断します。" property="og:description"/>
+<meta content="https://xwaf.io/ja/" property="og:url"/>
+<meta content="" property="og:image"/>
+<title>PLURA-WAF基盤の次世代クラウドWebアプリケーションファイアウォール、xWAF</title>
+<link href="../res/css/bootstrap.min.css" media="screen" rel="stylesheet"/>
+<link href="../res/css/font-awesome-all.css" media="screen" rel="stylesheet"/>
+<link href="../res/css/flaticon.css" media="screen" rel="stylesheet"/>
+<link href="../res/css/swiper.min.css" rel="stylesheet"/>
+<link href="../res/css/animate.css" rel="stylesheet"/>
+<link href="../res/css/magnific-popup.css" rel="stylesheet"/>
+<link href="../res/css/custom.css" media="screen" rel="stylesheet"/>
+<style>
+  /* xWAF / PLURA-WAF refresh */
+  :root {
+    --xwaf-navy: #07152f;
+    --xwaf-blue: #1463ff;
+    --xwaf-cyan: #20d6ff;
+    --xwaf-soft: #f4f8ff;
+    --xwaf-text: #243047;
+    --xwaf-muted: #67748b;
+    --xwaf-card: rgba(255,255,255,.94);
+  }
+
+  body { word-break: keep-all; }
+
+  .banner {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 15% 15%, rgba(32,214,255,.24), transparent 32%),
+                radial-gradient(circle at 85% 25%, rgba(20,99,255,.22), transparent 30%),
+                linear-gradient(135deg, #08142f 0%, #102f72 52%, #07152f 100%) !important;
+  }
+
+  .banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.18));
+    pointer-events: none;
+  }
+
+  .banner .container { position: relative; z-index: 1; }
+
+  .xwaf-hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px;
+    color: #dff8ff;
+    background: rgba(255,255,255,.09);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -.2px;
+  }
+
+  .xwaf-hero-kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--xwaf-cyan);
+    box-shadow: 0 0 16px rgba(32,214,255,.9);
+  }
+
+  .header-content .xwaf-hero-title {
+    color: #fff;
+    font-size: 48px;
+    line-height: 1.15;
+    letter-spacing: -1.8px;
+    margin-bottom: 18px;
+  }
+
+  .xwaf-hero-title strong {
+    color: #8deeff;
+    font-weight: 800;
+  }
+
+  .xwaf-hero-lead {
+    color: rgba(255,255,255,.9);
+    font-size: 18px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .xwaf-hero-note {
+    color: rgba(255,255,255,.78);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .xwaf-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xwaf-hero-badges li {
+    padding: 8px 12px;
+    border-radius: 12px;
+    color: #e9fbff;
+    background: rgba(255,255,255,.11);
+    border: 1px solid rgba(255,255,255,.16);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .xwaf-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-buynow.xwaf-secondary-btn {
+    background: rgba(255,255,255,.10) !important;
+    border: 1px solid rgba(255,255,255,.28) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .xwaf-hero-visual {
+    position: relative;
+    padding: 26px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    backdrop-filter: blur(10px);
+  }
+
+  .xwaf-hero-visual img {
+    width: 100%;
+    border-radius: 22px;
+    filter: drop-shadow(0 16px 28px rgba(0,0,0,.25));
+  }
+
+  .xwaf-floating-card {
+    position: absolute;
+    min-width: 170px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 14px 34px rgba(0,0,0,.18);
+  }
+
+  .xwaf-floating-card strong {
+    display: block;
+    color: var(--xwaf-navy);
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .xwaf-floating-card span {
+    color: var(--xwaf-muted);
+    font-size: 12px;
+  }
+
+  .xwaf-floating-card.card-a { left: -8px; bottom: 36px; }
+  .xwaf-floating-card.card-b { right: -4px; top: 42px; }
+
+  .step-container,
+  .feature-single,
+  .about-product-single,
+  .product-box,
+  .facts-single {
+    border-radius: 24px;
+  }
+
+  .step-single {
+    min-height: 245px;
+    padding: 34px 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .step-single:hover,
+  .feature-single:hover,
+  .product-single:hover {
+    transform: translateY(-6px);
+  }
+
+  .plura-waf-intro {
+    padding: 110px 0 86px;
+    background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  }
+
+  .xwaf-section-kicker {
+    display: inline-block;
+    color: var(--xwaf-blue);
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .xwaf-section-title {
+    color: var(--xwaf-navy);
+    font-size: 38px;
+    line-height: 1.28;
+    letter-spacing: -1.3px;
+    margin-bottom: 16px;
+  }
+
+  .xwaf-section-desc {
+    color: var(--xwaf-text);
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .xwaf-check-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xwaf-check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 13px;
+    color: var(--xwaf-text);
+    line-height: 1.65;
+  }
+
+  .xwaf-check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(135deg, var(--xwaf-blue), var(--xwaf-cyan));
+    font-size: 13px;
+    text-align: center;
+    line-height: 21px;
+    font-weight: 800;
+  }
+
+  .xwaf-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .xwaf-flow-card {
+    position: relative;
+    min-height: 178px;
+    padding: 24px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(20, 62, 120, .10);
+    border: 1px solid rgba(20, 99, 255, .08);
+    overflow: hidden;
+  }
+
+  .xwaf-flow-card::after {
+    content: attr(data-step);
+    position: absolute;
+    right: 18px;
+    bottom: -20px;
+    color: rgba(20, 99, 255, .08);
+    font-size: 78px;
+    font-weight: 900;
+    letter-spacing: -4px;
+  }
+
+  .xwaf-flow-card h3 {
+    color: var(--xwaf-navy);
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .xwaf-flow-card p {
+    color: var(--xwaf-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .xwaf-band {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border-radius: 22px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--xwaf-navy), var(--xwaf-blue));
+    box-shadow: 0 16px 36px rgba(20, 99, 255, .22);
+  }
+
+  .xwaf-band strong { color: #8deeff; }
+
+  .feature-single p,
+  .about-entry p,
+  .product-info p,
+  .buynow-entry p { word-break: keep-all; }
+
+  .xwaf-tech-list {
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xwaf-tech-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(20,99,255,.10);
+    color: var(--xwaf-text);
+    line-height: 1.7;
+  }
+
+  .xwaf-tech-list li strong {
+    display: block;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 991px) {
+    .header-content .xwaf-hero-title { font-size: 38px; }
+    .xwaf-flow-grid { grid-template-columns: 1fr; margin-top: 28px; }
+    .xwaf-floating-card { position: static; margin-top: 14px; }
+    .xwaf-hero-visual { margin-top: 34px; }
+  }
+
+  @media (max-width: 767px) {
+    .banner { padding-top: 96px; }
+    .header-content { text-align: left; }
+    .header-content .xwaf-hero-title { font-size: 31px; letter-spacing: -1px; }
+    .xwaf-hero-lead { font-size: 16px; line-height: 1.75; }
+    .xwaf-hero-actions .btn-buynow { width: 100%; text-align: center; }
+    .xwaf-section-title { font-size: 29px; }
+    .plura-waf-intro { padding: 72px 0 60px; }
+    .step-single { min-height: auto; }
+  }
+</style>
+</head>
+<body data-bs-offset="0" data-bs-spy="scroll" data-bs-target=".navbar-scrollspy">
+<!-- Preloader starts -->
+<div class="preloader">
+<span class="loader">
+<span class="loader-inner"></span>
+</span>
+</div>
+<!-- Preloader Ends -->
+<!-- Header Section Starts-->
+<header>
+<!-- Header Nav Section Starts -->
+<div id="navbar-container"></div>
+<!-- Header Nav Section Ends -->
+</header>
+<!-- Header Section Ends-->
+<!-- Banner Section Starts -->
+<section class="banner parallaxie" id="home">
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="header-content wow fadeInUp" style="padding-top:0px">
+<div class="xwaf-hero-kicker">PLURA-WAF / PLURA-XDR連携</div>
+<h1 class="xwaf-hero-title">Web攻撃の起点から<br/><strong>サーバー内部の挙動</strong>まで可視化する<br/>次世代クラウドWebアプリケーションファイアウォール</h1>
+<p class="xwaf-hero-lead">xWAFはPLURA-WAFの概念に基づき、元のWebリクエスト／レスポンス本文、アクセスログ、アカウントの挙動、サーバーイベントを統合的に分析します。</p>
+<p class="xwaf-hero-note">OWASP Top 10、クレデンシャルスタッフィング、Webシェル・RCE、データ漏洩、ゼロデイ攻撃まで、AIベースの検知とポリシーベースの自動遮断でリアルタイムに対応します。</p>
+<ul class="xwaf-hero-badges">
+<li>Web本文フル解析</li>
+<li>AIゼロデイ検知</li>
+<li>クレデンシャルスタッフィング防御</li>
+<li>WAF・EDR・SIEM相関分析</li>
+</ul>
+<div class="buy-button xwaf-hero-actions">
+<a class="btn-buynow" href="https://www.plura.io/signup" style="text-transform:none" target="_blank">PLURA-WAFを始める</a>
+<a class="btn-buynow xwaf-secondary-btn" href="#technology" style="text-transform:none">コア技術を見る</a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-6">
+<div class="slider-image wow fadeInRight xwaf-hero-visual">
+<img alt="PLURA-WAF基盤xWAFダッシュボード画面" src="../res/images/header_ja.png"/>
+<div class="xwaf-floating-card card-a">
+<strong>原本ログ分析</strong>
+<span>Request・Response・Account</span>
+</div>
+<div class="xwaf-floating-card card-b">
+<strong>自動検知・遮断</strong>
+<span>WAFポリシー + AI判定</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner Section Ends -->
+<!-- Step Section starts -->
+<div class="step-section">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="step-container">
+<div class="row">
+<!-- Step start -->
+<div class="col-md-4 col-sm-4">
+<div class="step-single wow fadeInUp" data-wow-delay="0.2s">
+<div class="icon-box">
+<i class="flaticon-login"></i>
+</div>
+<h3>PLURA-WAF</h3>
+<p>元のWebリクエスト／レスポンス本文分析<br/>OWASP Top 10・回避型ペイロードの検知／遮断</p>
+</div>
+</div>
+<!-- Step end -->
+<!-- Step start -->
+<div class="col-md-4 col-sm-4">
+<div class="step-single wow fadeInUp" data-wow-delay="0.4s">
+<div class="icon-box">
+<i class="flaticon-login-1"></i>
+</div>
+<h3>PLURA-EDR</h3>
+<p>Webシェル・RCE後のサーバー挙動追跡<br/>プロセス・ファイル・アカウント異常の相関分析</p>
+</div>
+</div>
+<!-- Step end -->
+<!-- Step start -->
+<div class="col-md-4 col-sm-4">
+<div class="step-single wow fadeInUp" data-wow-delay="0.6s">
+<div class="icon-box">
+<i class="flaticon-locked"></i>
+</div>
+<h3>PLURA-SIEM/XDR</h3>
+<p>Web・サーバー・アカウントログの統合分析<br/>ゼロデイ攻撃の検知と対応自動化</p>
+</div>
+</div>
+<!-- Step end -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step Section ends -->
+<!-- PLURA-WAF Concept section starts -->
+<section class="plura-waf-intro" id="plura-waf">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-5">
+<span class="xwaf-section-kicker">PLURA-WAFコンセプト</span>
+<h2 class="xwaf-section-title">Webファイアウォールは今や<br/>単なる遮断装置ではなく、<br/>攻撃の証拠を解釈するプラットフォームであるべきです。</h2>
+<p class="xwaf-section-desc">PLURA-WAFは単純なシグネチャ照合にとどまらず、実際のWebリクエストとレスポンス本文をセキュリティ判断の根拠として活用します。攻撃がWebから始まる場合、サーバー内部の挙動、アカウントイベント、ファイル変更まで連続して分析する必要があります。</p>
+<ul class="xwaf-check-list">
+<li>元のWebリクエスト／レスポンス本文に基づく詳細ログの確保</li>
+<li>AIによるゼロデイ・回避型ペイロード検知</li>
+<li>検知結果に基づくポリシーベースの自動遮断</li>
+<li>EDR・SIEMと連携したWebシェル、RCE、アカウント乗っ取り後続行為の追跡</li>
+</ul>
+</div>
+<div class="col-lg-7">
+<div class="xwaf-flow-grid">
+<div class="xwaf-flow-card" data-step="01">
+<h3>Webリクエスト収集</h3>
+<p>URL、Header、Query、Body、Responseまで、攻撃判断に必要な原本証拠を確保します。</p>
+</div>
+<div class="xwaf-flow-card" data-step="02">
+<h3>AI脅威分析</h3>
+<p>既知のパターンだけでなく、エンコード、難読化、コンテキスト脱出、異常なログインフローもあわせて判断します。</p>
+</div>
+<div class="xwaf-flow-card" data-step="03">
+<h3>ポリシーベース遮断</h3>
+<p>高リスク攻撃は即時遮断し、確認が必要なイベントは監視・分析フローへ連携します。</p>
+</div>
+<div class="xwaf-flow-card" data-step="04">
+<h3>XDR相関分析</h3>
+<p>Web攻撃後のプロセス実行、ファイル作成、アカウントログイン、データ持ち出し兆候を関連付けます。</p>
+</div>
+</div>
+<div class="xwaf-band"><strong>核心:</strong> Webで止め、サーバーで確認し、ログで証明します。これがPLURA-WAF基盤xWAFの差別化ポイントです。</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PLURA-WAF Concept section ends -->
+<!-- Features section starts -->
+<section class="features" id="features">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>防御カバレッジ</p>
+<h2>PLURA-WAFの主要防御機能</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<div class="col-lg-4">
+<!-- Feature single start -->
+<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.2s">
+<div class="icon-box">
+<i class="flaticon-cpu"></i>
+</div>
+<h3>DDoS・ボット攻撃対応</h3>
+<p>クラウドベースのエッジ保護とトラフィック分析により、<br/>大規模なリクエスト集中と自動化ボットアクセスを識別し、<br/>サービス可用性を保護します。</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.6s">
+<div class="icon-box">
+<i class="flaticon-gold-medal"></i>
+</div>
+<h3>Webシェル・RCE検知</h3>
+<p>アップロード、コマンド実行、不審なスクリプト呼び出しなど、<br/>Webシェルとリモートコマンド実行の兆候をリアルタイムに検知します。</p>
+<p>EDR連携により、プロセス実行、ファイル作成、権限変更まで追跡し、Web攻撃後の後続行為を確認します。</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.8s">
+<div class="icon-box">
+<i class="flaticon-loupe"></i>
+</div>
+<h3>ゼロデイ・回避攻撃対応</h3>
+<p>元のリクエスト／レスポンス本文とログをあわせて分析し、<br/>新規脆弱性の悪用、エンコード・難読化、シグネチャ回避型ペイロードを早期に検知します。</p>
+<p>AI分析結果とポリシーを組み合わせ、高リスク攻撃は自動遮断し、分析根拠を残します。</p>
+</div>
+<!-- Feature single end -->
+</div>
+<div class="col-lg-4">
+<div class="feature-image wow fadeInUp">
+<div class="buynow-video" style="padding-top:0px">
+<a class="popup-video" href="../res/images/feature-1.png"><img alt="xWAFセキュリティ分析画面" src="../res/images/feature-1.png"/></a>
+</div>
+</div>
+<div class="feature-image wow fadeInUp">
+<div class="buynow-video" style="padding-top:0px">
+<a class="popup-video" href="../res/images/feature.png"><img alt="PLURA-WAF統合検知画面" src="../res/images/feature_ja.png"/></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<!-- Feature single start -->
+<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.2s">
+<div class="icon-box">
+<i class="flaticon-support"></i>
+</div>
+<h3>クレデンシャルスタッフィング防御</h3>
+<p>大量ログイン試行、失敗率の急増、アカウント巡回、分散IPアクセスなど、アカウント乗っ取りの流れをリアルタイムに分析します。</p>
+<p>IP・アカウント・セッション・User-Agent基準の異常検知とポリシーベース遮断をあわせて提供します。</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.4s">
+<div class="icon-box">
+<i class="flaticon-eye"></i>
+</div>
+<h3>データ漏洩防止</h3>
+<p>レスポンス本文、ダウンロードパターン、機密情報露出の兆候を分析し、個人情報・機密情報の漏洩試行を検知します。</p>
+<p>異常な大量照会、ディレクトリ露出、エラー・デバッグ情報の露出まであわせて監視します。</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.6s">
+<div class="icon-box">
+<i class="flaticon-stopwatch"></i>
+</div>
+<h3>MITRE ATT&amp;CK連携</h3>
+<p>Web攻撃を単一イベントで終わらせず、<br/>初期侵入、実行、永続化、権限昇格、データ持ち出し段階まで拡張して分析します。</p>
+</div>
+<!-- Feature single end -->
+</div>
+</div>
+</div>
+</section>
+<!-- Features section ends -->
+<!-- About Product section starts -->
+<section class="about-product" id="technology">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>技術と相関分析</p>
+<h2>Webからサーバーまでつなぐセキュリティ分析技術</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<div class="col-md-12">
+<div class="about-product-single">
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="about-entry" style="padding-left:40px">
+<h4>PLURA-WAFコア</h4>
+<h3>技術的な強み</h3>
+<ul class="xwaf-tech-list">
+<li><strong>元のWebリクエスト／レスポンス本文分析</strong>URL、Header、Query、Body、Responseを一緒に分析し、従来型WAFが見逃す回避型攻撃を確認します。</li>
+<li><strong>AIベースのゼロデイ検知</strong>シグネチャのない攻撃も、ペイロード構造、実行意図、異常なコンテキストを基準に判断します。</li>
+<li><strong>自動遮断と運用者レビューの分離</strong>明確な高リスク攻撃は即時遮断し、判断が難しいイベントは根拠中心で監視レビューへ連携します。</li>
+<li><strong>WAF・EDR・SIEM/XDR相関分析</strong>Webリクエスト後のサーバーコマンド実行、Webシェル生成、ログイン異常、データ持ち出し兆候を一つの侵害フローとして分析します。</li>
+</ul>
+<a class="btn-buynow" href="https://www.plura.io/signup" target="_blank">今すぐ始める</a>
+</div>
+</div>
+<div class="col-md-6 col-sm-6">
+<div class="about-image wow fadeInRight" data-wow-delay="0.2s" style="padding-top: 30px;">
+<img alt="PLURA-WAF技術構成図" src="../res/images/about-1_ja.png"/>
+</div>
+</div>
+</div>
+</div>
+<div class="about-product-single">
+<div class="row">
+<div class="col-md-6 col-sm-6 order-md-2">
+<div class="about-entry" style="padding-left:40px">
+<h4>導入効果</h4>
+<h3>導入効果</h3>
+<ul class="xwaf-tech-list">
+<li><strong>Web攻撃対応範囲の拡大</strong>単純な遮断を超えて、Webシェル、RCE、アカウント乗っ取り、データ漏洩まで続く侵害フローを追跡します。</li>
+<li><strong>運用負担の最小化</strong>クラウドベースで迅速に適用し、検知・遮断・監視レビューの流れを自動化します。</li>
+<li><strong>侵害根拠の確保</strong>攻撃リクエストと対応結果をログとして残し、事後分析、報告、再発防止に活用できます。</li>
+<li><strong>PLURA-XDR拡張性</strong>Webファイアウォールで始まったイベントを、サーバー、PC、アカウント、フォレンジック分析へ拡張できます。</li>
+</ul>
+<a class="btn-buynow" href="https://www.plura.io/signup" target="_blank">今すぐ始める</a>
+</div>
+</div>
+<div class="col-md-6 col-sm-6 order-md-1" style="padding-top: 30px;">
+<div class="about-image wow fadeInLeft" data-wow-delay="0.4s">
+<img alt="xWAF導入効果" src="../res/images/about-2_ja.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Product section ends -->
+<!-- About Facts starts -->
+<section class="about-facts parallaxie">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>運用準備性</p>
+<h2>迅速に導入し、継続的に防御します</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">2014</h3>
+<p>QubitSecurity創業</p>
+</div>
+</div>
+<!-- Fact single end -->
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">1</h3>
+<p>分でオンボーディング準備</p>
+</div>
+</div>
+<!-- Fact single end -->
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">24</h3>
+<p>時間監視フロー</p>
+</div>
+</div>
+<!-- Fact single end -->
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">3</h3>
+<p>WAF・EDR・SIEMレイヤー</p>
+</div>
+</div>
+<!-- Fact single end -->
+</div>
+</div>
+</section>
+<!-- About Facts ends -->
+<!-- Product Section starts -->
+<section class="products" id="benefits">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>攻撃シナリオ</p>
+<h2>PLURA-WAFが重視する主要攻撃シナリオ</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="xWAF攻撃シナリオカード" src="../res/images/product-4.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>OWASP Top 10</h3>
+<p>SQL Injection、XSS、脆弱性スキャン、回避型ペイロードを元のリクエスト基準で検知します。</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">サービス開始</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="xWAF攻撃シナリオカード" src="../res/images/product-2.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>Credential Stuffing</h3>
+<p>アカウント巡回、大量ログイン失敗、分散IPアクセスを分析し、アカウント乗っ取り攻撃を遮断します。</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">サービス開始</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="xWAF攻撃シナリオカード" src="../res/images/product-3.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>Web Shell / RCE</h3>
+<p>Webシェルアップロードとコマンド実行の兆候を検知し、サーバー内部の後続行為まで関連付けます。</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">サービス開始</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="xWAF攻撃シナリオカード" src="../res/images/product-1.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>Zero-Day / Data Leak</h3>
+<p>AIベースの異常行動分析により、新規攻撃と機密データ漏洩の兆候を早期に識別します。</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">サービス開始</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+</div>
+</div>
+</section>
+<!-- Product Section ends -->
+<!-- Buy Now infobar section starts -->
+<div class="buynow-infobar parallaxie">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8">
+<div class="section-title wow fadeInUp">
+<p>証拠から始める</p>
+<h2 style="letter-spacing:-1px">Web攻撃の証拠を残し、即時に遮断してください。</h2>
+</div>
+<div class="buynow-entry">
+<p>xWAFはPLURA-WAFとPLURA-XDR技術を活用し、原本Webログ分析、AI検知、自動遮断、サーバー内部挙動の相関分析を提供します。</p>
+<p>Webから始まる攻撃をWebで止め、サーバーで確認し、ログで証明するセキュリティ体系を体験してください。</p>
+<a class="btn-buynow" href="https://www.plura.io/signup" target="_blank">今すぐ始める</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4">
+<div class="buynow-video">
+<a class="popup-video" href="https://www.youtube-nocookie.com/embed/xkgfTmMuw4w?controls=1&amp;enablejsapi=1&amp;rel=0&amp;fs=1&amp;autoplay=1&amp;mute=1"><i class="flaticon-play-button"></i></a>
+</div>
+</div>
+<div></div>
+</div>
+</div>
+</div>
+<!-- Buy Now infobar section ends -->
+<!-- Our Clients Section starts -->
+<div id="ourclients-container"></div>
+<!-- Our Clients Section ends -->
+<!-- Contact us & Footer section starts -->
+<div id="contactus-container"></div>
+<!-- Contact us & Footer section ends -->
+<!-- Footer section starts -->
+<div id="footer-container"></div>
+<!-- Footer section ends -->
+<!-- Jquery Library File -->
+<script src="../res/js/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="../res/js/bootstrap.min.js"></script>
+<!-- Bootstrap form validator -->
+<script src="../res/js/validator.min.js"></script>
+<!-- Counterup js file -->
+<script src="../res/js/jquery.waypoints.min.js"></script>
+<script src="../res/js/jquery.counterup.min.js"></script>
+<!-- Wow js file -->
+<script src="../res/js/wow.js"></script>
+<!-- Swiper Carousel js file -->
+<script src="../res/js/swiper.min.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="../res/js/jquery.magnific-popup.min.js"></script>
+<!-- Parallaxie js file -->
+<script src="../res/js/parallaxie.js"></script>
+<!-- SmoothScroll -->
+<script src="../res/js/SmoothScroll.js"></script>
+<!-- Main Custom js file -->
+<script src="../res/js/function.js"></script>
+<script src="../res/js/aos.js"></script>
+<script src="../res/js/fancybox.umd.js"></script>
+<script src="../res/js/common.js"></script>
+<script>
+	  document.addEventListener("DOMContentLoaded", function () {
+	    // nav
+	    fetch("../res/include/nav.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("navbar-container").innerHTML = html);
+	
+	    // our clients
+	    fetch("../res/include/ourclients-en.html")
+		  .then(res => res.text())
+		  .then(html => {
+		    document.getElementById("ourclients-container").innerHTML = html;
+		
+		    // Swiper はクライアント領域の読み込み後に初期化
+		    new Swiper(".ourclient-slider", {
+		      loop: true,
+		      autoplay: {
+		        delay: 2000,
+		        disableOnInteraction: false,
+		        pauseOnMouseEnter: true
+		      },
+		      slidesPerView: 3,
+		      spaceBetween: 30,
+		      breakpoints: {
+		        768: { slidesPerView: 4 },
+		        1024: { slidesPerView: 6 }
+		      },
+		      pagination: {
+		        el: ".swiper-pagination",
+		        clickable: true
+		      },
+		      navigation: {
+		        nextEl: ".swiper-button-next",
+		        prevEl: ".swiper-button-prev"
+		      }
+		    });
+		  });
+
+
+	
+	    // contact us
+	    fetch("../res/include/contactus-ja.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("contactus-container").innerHTML = html);
+	
+	    // footer
+	    fetch("../res/include/footer.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("footer-container").innerHTML = html);
+	  });
+	</script>
+</body>
+</html>
