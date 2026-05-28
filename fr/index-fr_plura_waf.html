@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="index,follow" name="robots"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="xWAF, basé sur PLURA-WAF, analyse en temps réel les corps originaux des requêtes/réponses web et les journaux afin de détecter et bloquer automatiquement OWASP Top 10, credential stuffing, web shells, fuites de données et attaques zero-day." name="description"/>
+<meta content="WAF, EDR, SIEM, APT, Credential Stuffing, Hacking, MITRE ATT&amp;CK, OWASP, PLURA-WAF, Web Body Analysis, Zero-Day Detection, Cloud WAF" name="keywords"/>
+<meta content="WAF, EDR, SIEM, APT, Credential Stuffing, Hacking, MITRE ATT&amp;CK, OWASP, PLURA-WAF, Web Body Analysis, Zero-Day Detection, Cloud WAF" name="keywords"/>
+<link href="../res/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://xwaf.io/fr/" rel="canonical"/>
+<link href="" rel="apple-touch-icon-precomposed"/>
+<meta content="Pare-feu applicatif web cloud de nouvelle génération basé sur PLURA-WAF, xWAF" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="xWAF basé sur PLURA-WAF analyse les requêtes, réponses et journaux originaux pour détecter et bloquer les attaques du premier signal web au comportement serveur." property="og:description"/>
+<meta content="https://xwaf.io/fr/" property="og:url"/>
+<meta content="" property="og:image"/>
+<title>Pare-feu applicatif web cloud de nouvelle génération basé sur PLURA-WAF, xWAF</title>
+<link href="../res/css/bootstrap.min.css" media="screen" rel="stylesheet"/>
+<link href="../res/css/font-awesome-all.css" media="screen" rel="stylesheet"/>
+<link href="../res/css/flaticon.css" media="screen" rel="stylesheet"/>
+<link href="../res/css/swiper.min.css" rel="stylesheet"/>
+<link href="../res/css/animate.css" rel="stylesheet"/>
+<link href="../res/css/magnific-popup.css" rel="stylesheet"/>
+<link href="../res/css/custom.css" media="screen" rel="stylesheet"/>
+<style>
+  /* xWAF / PLURA-WAF refresh */
+  :root {
+    --xwaf-navy: #07152f;
+    --xwaf-blue: #1463ff;
+    --xwaf-cyan: #20d6ff;
+    --xwaf-soft: #f4f8ff;
+    --xwaf-text: #243047;
+    --xwaf-muted: #67748b;
+    --xwaf-card: rgba(255,255,255,.94);
+  }
+
+  body { word-break: keep-all; }
+
+  .banner {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 15% 15%, rgba(32,214,255,.24), transparent 32%),
+                radial-gradient(circle at 85% 25%, rgba(20,99,255,.22), transparent 30%),
+                linear-gradient(135deg, #08142f 0%, #102f72 52%, #07152f 100%) !important;
+  }
+
+  .banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.18));
+    pointer-events: none;
+  }
+
+  .banner .container { position: relative; z-index: 1; }
+
+  .xwaf-hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px;
+    color: #dff8ff;
+    background: rgba(255,255,255,.09);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -.2px;
+  }
+
+  .xwaf-hero-kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--xwaf-cyan);
+    box-shadow: 0 0 16px rgba(32,214,255,.9);
+  }
+
+  .header-content .xwaf-hero-title {
+    color: #fff;
+    font-size: 48px;
+    line-height: 1.15;
+    letter-spacing: -1.8px;
+    margin-bottom: 18px;
+  }
+
+  .xwaf-hero-title strong {
+    color: #8deeff;
+    font-weight: 800;
+  }
+
+  .xwaf-hero-lead {
+    color: rgba(255,255,255,.9);
+    font-size: 18px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .xwaf-hero-note {
+    color: rgba(255,255,255,.78);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .xwaf-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xwaf-hero-badges li {
+    padding: 8px 12px;
+    border-radius: 12px;
+    color: #e9fbff;
+    background: rgba(255,255,255,.11);
+    border: 1px solid rgba(255,255,255,.16);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .xwaf-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-buynow.xwaf-secondary-btn {
+    background: rgba(255,255,255,.10) !important;
+    border: 1px solid rgba(255,255,255,.28) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .xwaf-hero-visual {
+    position: relative;
+    padding: 26px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    backdrop-filter: blur(10px);
+  }
+
+  .xwaf-hero-visual img {
+    width: 100%;
+    border-radius: 22px;
+    filter: drop-shadow(0 16px 28px rgba(0,0,0,.25));
+  }
+
+  .xwaf-floating-card {
+    position: absolute;
+    min-width: 170px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 14px 34px rgba(0,0,0,.18);
+  }
+
+  .xwaf-floating-card strong {
+    display: block;
+    color: var(--xwaf-navy);
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .xwaf-floating-card span {
+    color: var(--xwaf-muted);
+    font-size: 12px;
+  }
+
+  .xwaf-floating-card.card-a { left: -8px; bottom: 36px; }
+  .xwaf-floating-card.card-b { right: -4px; top: 42px; }
+
+  .step-container,
+  .feature-single,
+  .about-product-single,
+  .product-box,
+  .facts-single {
+    border-radius: 24px;
+  }
+
+  .step-single {
+    min-height: 245px;
+    padding: 34px 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .step-single:hover,
+  .feature-single:hover,
+  .product-single:hover {
+    transform: translateY(-6px);
+  }
+
+  .plura-waf-intro {
+    padding: 110px 0 86px;
+    background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  }
+
+  .xwaf-section-kicker {
+    display: inline-block;
+    color: var(--xwaf-blue);
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .xwaf-section-title {
+    color: var(--xwaf-navy);
+    font-size: 38px;
+    line-height: 1.28;
+    letter-spacing: -1.3px;
+    margin-bottom: 16px;
+  }
+
+  .xwaf-section-desc {
+    color: var(--xwaf-text);
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .xwaf-check-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xwaf-check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 13px;
+    color: var(--xwaf-text);
+    line-height: 1.65;
+  }
+
+  .xwaf-check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(135deg, var(--xwaf-blue), var(--xwaf-cyan));
+    font-size: 13px;
+    text-align: center;
+    line-height: 21px;
+    font-weight: 800;
+  }
+
+  .xwaf-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .xwaf-flow-card {
+    position: relative;
+    min-height: 178px;
+    padding: 24px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(20, 62, 120, .10);
+    border: 1px solid rgba(20, 99, 255, .08);
+    overflow: hidden;
+  }
+
+  .xwaf-flow-card::after {
+    content: attr(data-step);
+    position: absolute;
+    right: 18px;
+    bottom: -20px;
+    color: rgba(20, 99, 255, .08);
+    font-size: 78px;
+    font-weight: 900;
+    letter-spacing: -4px;
+  }
+
+  .xwaf-flow-card h3 {
+    color: var(--xwaf-navy);
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .xwaf-flow-card p {
+    color: var(--xwaf-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .xwaf-band {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border-radius: 22px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--xwaf-navy), var(--xwaf-blue));
+    box-shadow: 0 16px 36px rgba(20, 99, 255, .22);
+  }
+
+  .xwaf-band strong { color: #8deeff; }
+
+  .feature-single p,
+  .about-entry p,
+  .product-info p,
+  .buynow-entry p { word-break: keep-all; }
+
+  .xwaf-tech-list {
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .xwaf-tech-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(20,99,255,.10);
+    color: var(--xwaf-text);
+    line-height: 1.7;
+  }
+
+  .xwaf-tech-list li strong {
+    display: block;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 991px) {
+    .header-content .xwaf-hero-title { font-size: 38px; }
+    .xwaf-flow-grid { grid-template-columns: 1fr; margin-top: 28px; }
+    .xwaf-floating-card { position: static; margin-top: 14px; }
+    .xwaf-hero-visual { margin-top: 34px; }
+  }
+
+  @media (max-width: 767px) {
+    .banner { padding-top: 96px; }
+    .header-content { text-align: left; }
+    .header-content .xwaf-hero-title { font-size: 31px; letter-spacing: -1px; }
+    .xwaf-hero-lead { font-size: 16px; line-height: 1.75; }
+    .xwaf-hero-actions .btn-buynow { width: 100%; text-align: center; }
+    .xwaf-section-title { font-size: 29px; }
+    .plura-waf-intro { padding: 72px 0 60px; }
+    .step-single { min-height: auto; }
+  }
+</style>
+</head>
+<body data-bs-offset="0" data-bs-spy="scroll" data-bs-target=".navbar-scrollspy">
+<!-- Preloader starts -->
+<div class="preloader">
+<span class="loader">
+<span class="loader-inner"></span>
+</span>
+</div>
+<!-- Preloader Ends -->
+<!-- Header Section Starts-->
+<header>
+<!-- Header Nav Section Starts -->
+<div id="navbar-container"></div>
+<!-- Header Nav Section Ends -->
+</header>
+<!-- Header Section Ends-->
+<!-- Banner Section Starts -->
+<section class="banner parallaxie" id="home">
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="header-content wow fadeInUp" style="padding-top:0px">
+<div class="xwaf-hero-kicker">Intégré avec PLURA-WAF / PLURA-XDR</div>
+<h1 class="xwaf-hero-title">Depuis le premier signal d’une attaque web<br/><strong>le comportement côté serveur</strong>jusqu’à la visibilité complète<br/>Pare-feu applicatif web cloud de nouvelle génération</h1>
+<p class="xwaf-hero-lead">Basé sur le concept PLURA-WAF, xWAF analyse ensemble les corps originaux des requêtes/réponses web, les journaux d’accès, le comportement des comptes et les événements serveur.</p>
+<p class="xwaf-hero-note">Il répond en temps réel aux attaques OWASP Top 10, credential stuffing, web shell/RCE, fuite de données et zero-day grâce à la détection par IA et au blocage automatique basé sur des politiques.</p>
+<ul class="xwaf-hero-badges">
+<li>Full Web Body Analysis</li>
+<li>AI Zero-Day Detection</li>
+<li>Credential Stuffing Defense</li>
+<li>WAF·EDR·SIEM Correlation</li>
+</ul>
+<div class="buy-button xwaf-hero-actions">
+<a class="btn-buynow" href="https://www.plura.io/signup" style="text-transform:none" target="_blank">Démarrer PLURA-WAF</a>
+<a class="btn-buynow xwaf-secondary-btn" href="#technology" style="text-transform:none">Voir la technologie clé</a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-6">
+<div class="slider-image wow fadeInRight xwaf-hero-visual">
+<img alt="Écran du tableau de bord xWAF basé sur PLURA-WAF" src="../res/images/header_en.png"/>
+<div class="xwaf-floating-card card-a">
+<strong>Analyse des journaux originaux</strong>
+<span>Request · Response · Account</span>
+</div>
+<div class="xwaf-floating-card card-b">
+<strong>Détection et blocage automatiques</strong>
+<span>WAF Policy + AI Decision</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner Section Ends -->
+<!-- Step Section starts -->
+<div class="step-section">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="step-container">
+<div class="row">
+<!-- Step start -->
+<div class="col-md-4 col-sm-4">
+<div class="step-single wow fadeInUp" data-wow-delay="0.2s">
+<div class="icon-box">
+<i class="flaticon-login"></i>
+</div>
+<h3>PLURA-WAF</h3>
+<p>Analyse des corps originaux des requêtes/réponses web<br/>Détecter et bloquer OWASP Top 10 et les charges utiles évasives</p>
+</div>
+</div>
+<!-- Step end -->
+<!-- Step start -->
+<div class="col-md-4 col-sm-4">
+<div class="step-single wow fadeInUp" data-wow-delay="0.4s">
+<div class="icon-box">
+<i class="flaticon-login-1"></i>
+</div>
+<h3>PLURA-EDR</h3>
+<p>Suivre le comportement serveur après Web Shell/RCE<br/>Corréler les anomalies de processus, fichiers et comptes</p>
+</div>
+</div>
+<!-- Step end -->
+<!-- Step start -->
+<div class="col-md-4 col-sm-4">
+<div class="step-single wow fadeInUp" data-wow-delay="0.6s">
+<div class="icon-box">
+<i class="flaticon-locked"></i>
+</div>
+<h3>PLURA-SIEM/XDR</h3>
+<p>Analyse intégrée des journaux web, serveur et compte<br/>Détection zero-day et automatisation de la réponse</p>
+</div>
+</div>
+<!-- Step end -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step Section ends -->
+<!-- PLURA-WAF Concept section starts -->
+<section class="plura-waf-intro" id="plura-waf">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-5">
+<span class="xwaf-section-kicker">PLURA-WAF Concept</span>
+<h2 class="xwaf-section-title">Un pare-feu web doit désormais être<br/>non pas seulement un dispositif de blocage, mais<br/>une plateforme qui interprète les preuves d’attaque.</h2>
+<p class="xwaf-section-desc">PLURA-WAF dépasse la simple correspondance de signatures et utilise les requêtes web réelles et les corps de réponse comme preuves pour les décisions de sécurité. Lorsqu’une attaque commence sur le web, le comportement serveur, les événements de compte et les changements de fichiers doivent être analysés ensemble.</p>
+<ul class="xwaf-check-list">
+<li>Capturer des journaux détaillés à partir des corps originaux des requêtes/réponses web</li>
+<li>Détecter les charges utiles zero-day et évasives avec l’IA</li>
+<li>Appliquer un blocage automatique basé sur les politiques selon les résultats de détection</li>
+<li>Suivre les actions post-attaque comme web shells, RCE et prise de contrôle de compte via l’intégration EDR et SIEM</li>
+</ul>
+</div>
+<div class="col-lg-7">
+<div class="xwaf-flow-grid">
+<div class="xwaf-flow-card" data-step="01">
+<h3>Collecte des requêtes web</h3>
+<p>Capture les preuves originales nécessaires à l’évaluation d’une attaque : URL, en-tête, query, body et response.</p>
+</div>
+<div class="xwaf-flow-card" data-step="02">
+<h3>Analyse des menaces par IA</h3>
+<p>Évalue non seulement les modèles connus, mais aussi l’encodage, l’obfuscation, l’échappement de contexte et les flux de connexion anormaux.</p>
+</div>
+<div class="xwaf-flow-card" data-step="03">
+<h3>Blocage basé sur des politiques</h3>
+<p>Bloque immédiatement les attaques à haut risque et dirige les événements à examiner vers les flux de supervision et d’analyse.</p>
+</div>
+<div class="xwaf-flow-card" data-step="04">
+<h3>Corrélation XDR</h3>
+<p>Relie les signes après une attaque web, tels que l’exécution de processus, la création de fichiers, la connexion de comptes et l’exfiltration de données.</p>
+</div>
+</div>
+<div class="xwaf-band"><strong>Essentiel :</strong> Bloquer sur le web, vérifier sur le serveur et prouver avec les journaux. C’est la différence de xWAF basé sur PLURA-WAF.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PLURA-WAF Concept section ends -->
+<!-- Features section starts -->
+<section class="features" id="features">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>Defense Coverage</p>
+<h2>Fonctionnalités clés de défense PLURA-WAF</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<div class="col-lg-4">
+<!-- Feature single start -->
+<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.2s">
+<div class="icon-box">
+<i class="flaticon-cpu"></i>
+</div>
+<h3>Défense contre DDoS et bots</h3>
+<p>Avec la protection edge cloud et l’analyse du trafic,<br/>il identifie les pics massifs de requêtes et les accès automatisés par bots,<br/>protégeant la disponibilité du service.</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.6s">
+<div class="icon-box">
+<i class="flaticon-gold-medal"></i>
+</div>
+<h3>Détection Web Shell et RCE</h3>
+<p>Il détecte les téléchargements, l’exécution de commandes, les appels de scripts suspects et autres<br/>signes de web shells et d’exécution de commandes à distance en temps réel.</p>
+<p>Grâce à l’intégration EDR, il suit l’exécution de processus, la création de fichiers et les changements de privilèges pour vérifier les actions après une attaque web.</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-right wow fadeInLeft" data-wow-delay="0.8s">
+<div class="icon-box">
+<i class="flaticon-loupe"></i>
+</div>
+<h3>Défense contre zero-day et évasion</h3>
+<p>En analysant ensemble les corps originaux des requêtes/réponses et les journaux,<br/>il détecte tôt l’exploitation de nouvelles vulnérabilités, l’encodage, l’obfuscation et les charges utiles qui contournent les signatures.</p>
+<p>Il combine l’analyse IA et les politiques pour bloquer automatiquement les attaques à haut risque et conserver les preuves d’analyse.</p>
+</div>
+<!-- Feature single end -->
+</div>
+<div class="col-lg-4">
+<div class="feature-image wow fadeInUp">
+<div class="buynow-video" style="padding-top:0px">
+<a class="popup-video" href="../res/images/feature-1.png"><img alt="Écran d’analyse de sécurité xWAF" src="../res/images/feature-1.png"/></a>
+</div>
+</div>
+<div class="feature-image wow fadeInUp">
+<div class="buynow-video" style="padding-top:0px">
+<a class="popup-video" href="../res/images/feature.png"><img alt="Écran de détection intégrée PLURA-WAF" src="../res/images/feature_en.png"/></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<!-- Feature single start -->
+<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.2s">
+<div class="icon-box">
+<i class="flaticon-support"></i>
+</div>
+<h3>Défense contre le credential stuffing</h3>
+<p>Analyse en temps réel les schémas de prise de compte, dont les tentatives massives de connexion, la hausse des échecs, la rotation de comptes et les accès IP distribués.</p>
+<p>Combine détection d’anomalies et blocage basé sur des politiques selon l’IP, le compte, la session et le User-Agent.</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.4s">
+<div class="icon-box">
+<i class="flaticon-eye"></i>
+</div>
+<h3>Prévention des fuites de données</h3>
+<p>Analyse les corps de réponse, les modèles de téléchargement et les signes d’exposition de données sensibles pour détecter les tentatives de fuite d’informations personnelles ou confidentielles.</p>
+<p>Surveille aussi les requêtes massives anormales, l’exposition de répertoires et la fuite d’informations d’erreur/debug.</p>
+</div>
+<!-- Feature single end -->
+<!-- Feature single start -->
+<div class="feature-single feature-left wow fadeInRight" data-wow-delay="0.6s">
+<div class="icon-box">
+<i class="flaticon-stopwatch"></i>
+</div>
+<h3>Mappage MITRE ATT&amp;CK</h3>
+<p>Ne traite pas une attaque web comme un événement isolé,<br/>mais étend l’analyse aux phases d’accès initial, exécution, persistance, élévation de privilèges et exfiltration de données.</p>
+</div>
+<!-- Feature single end -->
+</div>
+</div>
+</div>
+</section>
+<!-- Features section ends -->
+<!-- About Product section starts -->
+<section class="about-product" id="technology">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>Technology and Correlation</p>
+<h2>Technologie d’analyse de sécurité du web au serveur</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<div class="col-md-12">
+<div class="about-product-single">
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="about-entry" style="padding-left:40px">
+<h4>PLURA-WAF Core</h4>
+<h3>Forces techniques</h3>
+<ul class="xwaf-tech-list">
+<li><strong>Analyse des corps originaux des requêtes/réponses web</strong>Analyse ensemble URL, header, query, body et response pour identifier les attaques évasives manquées par les WAF classiques.</li>
+<li><strong>Détection zero-day basée sur l’IA</strong>Évalue même les attaques sans signature selon la structure du payload, l’intention d’exécution et le contexte anormal.</li>
+<li><strong>Séparer blocage automatique et revue opérateur</strong>Les attaques clairement à haut risque sont bloquées immédiatement ; les événements ambigus sont envoyés à une revue de supervision fondée sur les preuves.</li>
+<li><strong>Corrélation WAF·EDR·SIEM/XDR</strong>Analyse l’exécution de commandes serveur, la création de web shell, les anomalies de connexion et l’exfiltration après une requête web comme un seul flux d’intrusion.</li>
+</ul>
+<a class="btn-buynow" href="https://www.plura.io/signup" target="_blank">Démarrer maintenant</a>
+</div>
+</div>
+<div class="col-md-6 col-sm-6">
+<div class="about-image wow fadeInRight" data-wow-delay="0.2s" style="padding-top: 30px;">
+<img alt="Architecture technologique PLURA-WAF" src="../res/images/about-1_en.png"/>
+</div>
+</div>
+</div>
+</div>
+<div class="about-product-single">
+<div class="row">
+<div class="col-md-6 col-sm-6 order-md-2">
+<div class="about-entry" style="padding-left:40px">
+<h4>Business Impact</h4>
+<h3>Impact métier</h3>
+<ul class="xwaf-tech-list">
+<li><strong>Couverture élargie des attaques web</strong>Suit le flux d’intrusion au-delà du simple blocage, y compris web shells, RCE, prise de compte et fuite de données.</li>
+<li><strong>Charge opérationnelle réduite</strong>Déployez rapidement dans le cloud et automatisez la détection, le blocage et la revue de supervision.</li>
+<li><strong>Conservation des preuves</strong>Conserve les requêtes d’attaque et les résultats de réponse sous forme de journaux pour l’analyse post-incident, le reporting et la prévention.</li>
+<li><strong>Extensibilité PLURA-XDR</strong>Étend les événements démarrés dans le WAF vers l’analyse serveur, PC, compte et forensique.</li>
+</ul>
+<a class="btn-buynow" href="https://www.plura.io/signup" target="_blank">Démarrer maintenant</a>
+</div>
+</div>
+<div class="col-md-6 col-sm-6 order-md-1" style="padding-top: 30px;">
+<div class="about-image wow fadeInLeft" data-wow-delay="0.4s">
+<img alt="Bénéfices d’adoption de xWAF" src="../res/images/about-2_en.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Product section ends -->
+<!-- About Facts starts -->
+<section class="about-facts parallaxie">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>Operational Readiness</p>
+<h2>Déployer rapidement et défendre en continu</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">2014</h3>
+<p>QubitSecurity Since</p>
+</div>
+</div>
+<!-- Fact single end -->
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">1</h3>
+<p>Minute Onboarding Ready</p>
+</div>
+</div>
+<!-- Fact single end -->
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">24</h3>
+<p>Hour Monitoring Flow</p>
+</div>
+</div>
+<!-- Fact single end -->
+<!-- Fact single start -->
+<div class="col-md-3 col-sm-6">
+<div class="facts-single">
+<h3 class="counter">3</h3>
+<p>WAF·EDR·SIEM Layers</p>
+</div>
+</div>
+<!-- Fact single end -->
+</div>
+</div>
+</section>
+<!-- About Facts ends -->
+<!-- Product Section starts -->
+<section class="products" id="benefits">
+<div class="container">
+<!-- Section Title start -->
+<div class="row">
+<div class="col-md-12">
+<div class="section-title wow fadeInUp">
+<p>Attack Scenarios</p>
+<h2>Scénarios d’attaque clés ciblés par PLURA-WAF</h2>
+</div>
+</div>
+</div>
+<!-- Section Title end -->
+<div class="row">
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="Carte de scénario d’attaque xWAF" src="../res/images/product-4.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>OWASP Top 10</h3>
+<p>Détecte SQL Injection, XSS, scans de vulnérabilités et payloads évasifs à partir des requêtes originales.</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">Démarrer le service</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="Carte de scénario d’attaque xWAF" src="../res/images/product-2.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>Credential Stuffing</h3>
+<p>Analyse la rotation de comptes, les échecs massifs de connexion et les accès IP distribués pour bloquer les prises de comptes.</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">Démarrer le service</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="Carte de scénario d’attaque xWAF" src="../res/images/product-3.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>Web Shell / RCE</h3>
+<p>Détecte les uploads de web shell et les signes d’exécution de commandes, puis les relie aux actions serveur ultérieures.</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">Démarrer le service</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+<!-- Product single start -->
+<div class="col-lg-3 col-md-6">
+<div class="product-single">
+<div class="product-box">
+<div class="front">
+<img alt="Carte de scénario d’attaque xWAF" src="../res/images/product-1.png"/>
+</div>
+<div class="back">
+<div class="product-info">
+<h3>Zero-Day / Data Leak</h3>
+<p>Identifie tôt les nouvelles attaques et les signes de fuite de données sensibles grâce à l’analyse d’anomalies par IA.</p>
+<a class="btn-ordernow" href="https://www.plura.io/signup" target="_blank">Démarrer le service</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product single end -->
+</div>
+</div>
+</section>
+<!-- Product Section ends -->
+<!-- Buy Now infobar section starts -->
+<div class="buynow-infobar parallaxie">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8">
+<div class="section-title wow fadeInUp">
+<p>Start with Evidence</p>
+<h2 style="letter-spacing:-1px">Conservez les preuves d’attaque web et bloquez immédiatement.</h2>
+</div>
+<div class="buynow-entry">
+<p>xWAF utilise PLURA-WAF et PLURA-XDR pour fournir l’analyse des journaux web originaux, la détection par IA, le blocage automatique et la corrélation du comportement serveur.</p>
+<p>Découvrez une architecture de sécurité qui bloque les attaques nées sur le web, les vérifie sur le serveur et les prouve avec les journaux.</p>
+<a class="btn-buynow" href="https://www.plura.io/signup" target="_blank">Démarrer maintenant</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4">
+<div class="buynow-video">
+<a class="popup-video" href="https://www.youtube-nocookie.com/embed/xkgfTmMuw4w?controls=1&amp;enablejsapi=1&amp;rel=0&amp;fs=1&amp;autoplay=1&amp;mute=1"><i class="flaticon-play-button"></i></a>
+</div>
+</div>
+<div></div>
+</div>
+</div>
+</div>
+<!-- Buy Now infobar section ends -->
+<!-- Our Clients Section starts -->
+<div id="ourclients-container"></div>
+<!-- Our Clients Section ends -->
+<!-- Contact us & Footer section starts -->
+<div id="contactus-container"></div>
+<!-- Contact us & Footer section ends -->
+<!-- Footer section starts -->
+<div id="footer-container"></div>
+<!-- Footer section ends -->
+<!-- Jquery Library File -->
+<script src="../res/js/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="../res/js/bootstrap.min.js"></script>
+<!-- Bootstrap form validator -->
+<script src="../res/js/validator.min.js"></script>
+<!-- Counterup js file -->
+<script src="../res/js/jquery.waypoints.min.js"></script>
+<script src="../res/js/jquery.counterup.min.js"></script>
+<!-- Wow js file -->
+<script src="../res/js/wow.js"></script>
+<!-- Swiper Carousel js file -->
+<script src="../res/js/swiper.min.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="../res/js/jquery.magnific-popup.min.js"></script>
+<!-- Parallaxie js file -->
+<script src="../res/js/parallaxie.js"></script>
+<!-- SmoothScroll -->
+<script src="../res/js/SmoothScroll.js"></script>
+<!-- Main Custom js file -->
+<script src="../res/js/function.js"></script>
+<script src="../res/js/aos.js"></script>
+<script src="../res/js/fancybox.umd.js"></script>
+<script src="../res/js/common.js"></script>
+<script>
+	  document.addEventListener("DOMContentLoaded", function () {
+	    // nav
+	    fetch("../res/include/nav.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("navbar-container").innerHTML = html);
+	
+	    // our clients
+	    fetch("../res/include/ourclients-en.html")
+		  .then(res => res.text())
+		  .then(html => {
+		    document.getElementById("ourclients-container").innerHTML = html;
+		
+		    // Initialize Swiper after the client markup is loaded
+		    new Swiper(".ourclient-slider", {
+		      loop: true,
+		      autoplay: {
+		        delay: 2000,
+		        disableOnInteraction: false,
+		        pauseOnMouseEnter: true
+		      },
+		      slidesPerView: 3,
+		      spaceBetween: 30,
+		      breakpoints: {
+		        768: { slidesPerView: 4 },
+		        1024: { slidesPerView: 6 }
+		      },
+		      pagination: {
+		        el: ".swiper-pagination",
+		        clickable: true
+		      },
+		      navigation: {
+		        nextEl: ".swiper-button-next",
+		        prevEl: ".swiper-button-prev"
+		      }
+		    });
+		  });
+
+
+	
+	    // contact us
+	    fetch("../res/include/contactus-fr.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("contactus-container").innerHTML = html);
+	
+	    // footer
+	    fetch("../res/include/footer.html")
+	      .then(res => res.text())
+	      .then(html => document.getElementById("footer-container").innerHTML = html);
+	  });
+	</script>
+</body>
+</html>
